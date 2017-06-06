@@ -34,151 +34,92 @@ namespace Memory_Game
             btnPause.Enabled = false;
             btnStart.Enabled = false;
             label2.Visible = false;
-            progressBar1.Visible = false;
+            progressBar2.Visible = false;
             groupBox1.Visible = false;
             readFile();
         }
-        
+
         Button[] b;
         Random r = new Random();
-        int n;
-        int time;
+        int n = 2;
         int flag = 0;
         //Phát sinh các button động với số lượng theo các mức độ do người chơi chọn
-        public void Expert()
+        public void Step()
         {
-            n = 20;
-            b = new Button[n];
+            b = new Button[n * n];
             int k = 0, j = 1;
-            for (int i = 0; i < n; i++)
+            label4.Visible = false;
+            lblYourtime.Visible = false;
+            for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
-                b[i].Size = new Size(100, 70);
+                b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
-                b[i].Location = new Point(70 + k * 105, 70 + j * 75);
+                var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                b[i].Image = bm;
+                b[i].Location = new Point(115 + k * 400 / n, n * 15 + j * 280 / n);
                 b[i].Enabled = false;
-                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
-                if (k == 5)
+                if (k == n)
                 {
                     k = 0; j++;
                 }
             }
 
         }
-        public void Intermediate()
+        public void Time()
         {
-            n = 16;
-            b = new Button[n];
+            b = new Button[n * n];
             int k = 0, j = 1;
-            for (int i = 0; i < n; i++)
+            label5.Visible = false;
+            lblClicks.Visible = false;
+            progressBar2.Visible = true;
+            for (int i = 0; i < n * n; i++)
             {
-
                 b[i] = new Button();
-                b[i].Size = new Size(100, 70);
+                b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
-                b[i].Location = new Point(115 + k * 105, 75 + j * 75);
+                var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                b[i].Image = bm;
+                b[i].Location = new Point(115 + k * 400 / n, n * 15 + j * 280 / n);
                 b[i].Enabled = false;
-                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
-                if (k == 4)
+                if (k == n)
                 {
                     k = 0; j++;
                 }
             }
         }
-        public void beginner()
+        public void Normal()
         {
-           
-            n = 12;
-            b = new Button[n];
+            b = new Button[n * n];
             int k = 0, j = 1;
-            for (int i = 0; i < n; i++)
+            label5.Visible = false;
+            lblClicks.Visible = false;
+            progressBar2.Visible = false;
+            for (int i = 0; i < n * n; i++)
             {
-
                 b[i] = new Button();
-                b[i].Size = new Size(100, 70);
+                b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
-                b[i].Location = new Point(115 + k * 105, 100 + j * 75);
+                var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                b[i].Image = bm;
+                b[i].Location = new Point(115 + k * 400 / n, n * 15 + j * 280 / n);
                 b[i].Enabled = false;
-                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
-                if (k == 4)
+                if (k == n)
                 {
                     k = 0; j++;
                 }
             }
         }
-        //Phát sinh các button động theo số lượng mà người chơi nhập vào, số nhập vào phải là số chẵn, lớn hơn 10 và nhỏ hơn 20
-        int s;
-        public void custom()
-        {
 
-             s = int.Parse(Interaction.InputBox("Nhập vào số lượng ô bạn muốn chơi, số ô phải là số chẵn lớn hơn hoặc bằng 10 và nhỏ hơn hoặc bằng 20: ", "Thông báo"));
-
-            if (s < 10 || s > 20 || s % 2 != 0)//Bắt lỗi nhập giá trị số ô
-            {
-                MessageBox.Show("Nhập sai giá trị số ô, hãy nhập lại\nSố ô phải là số chẵn lớn hơn hoặc bằng 10 và nhỏ hơn hoặc bằng 20 ", "Chú ý!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                custom();//Sau khi người dùng nhấn OK thì yêu cầu nhập lại
-            }
-            else
-            {
-                
-                b = new Button[s];
-                int k = 0, j = 1;
-                for (int i = 0; i < b.Length; i++)
-                {
-
-                    //Tùy vào số lượng button mà người chơi chọn sẽ quy định thời gian và việc xuống dòng
-                    if (s <= 16)
-                    {
-                        b[i] = new Button();
-                        b[i].Size = new Size(100, 70);
-                        b[i].Image = Image.FromFile("Default.jpg");
-                        b[i].Location = new Point(115 + k * 105, 75 + j * 75);
-                        b[i].Enabled = false;
-                        b[i].ForeColor = b[i].BackColor;
-                        b[i].Click += new EventHandler(b_Click);
-                        this.Controls.Add(b[i]);
-                        k++;
-                        if (k == 4)
-                        {
-                            k = 0; j++;
-                        }
-                        CurTime = new DateTime(2013, 1, 1, 0, 1, 0, 0);//Thời gian khi chọn mức độ này là 1 phút và 4 ô xuống dòng
-                        lblYourtime.Text = "0" + CurTime.Minute.ToString() + " : " + "0" + CurTime.Second.ToString();
-
-                    }
-                    if (s <= 20 && s > 16)
-                    {
-                        b[i] = new Button();
-                        b[i].Size = new Size(100, 70);
-                        b[i].Image = Image.FromFile("Default.jpg");
-                        b[i].Location = new Point(75 + k * 105, 65 + j * 75);
-                        b[i].Enabled = false;
-                        b[i].ForeColor = b[i].BackColor;
-                        b[i].Click += new EventHandler(b_Click);
-                        this.Controls.Add(b[i]);
-                        k++;
-                        if (k == 5)
-                        {
-                            k = 0; j++;
-                        }
-                        CurTime = new DateTime(2013, 1, 1, 0, 1, 30, 0);//Thời gian khi chọn mức độ này là 1 phút 30 giây và 5 ô xuống dòng
-                        lblYourtime.Text = "0" + CurTime.Minute.ToString() + " : " + CurTime.Second.ToString();
-
-                    }
-                }
-            }
-        }
-        
         public void random()
         {
             //Nửa mảng button cho random các giá trị từ 0 đến 9
@@ -196,22 +137,29 @@ namespace Memory_Game
                 list.RemoveAt(x);//Xóa phần tử đã được random trong list.
             }
             int lucky = r.Next(0, b.Length / 2);
-            for(int i = 0; i < b.Length/2; i++)
+            for (int i = 0; i < b.Length / 2; i++)
             {
-                if (i == lucky) b[i].Text = "Lucky";
+                if (i == lucky) b[i].Name = "Lucky";
             }
-        }        
-        int tmp = 0;//Lưu giá trị số lần Clicks        
+        }
+        int tmp = 0;//Lưu giá trị số lần Clicks 
+        int max = 2;
+        int t = 2;
         public void b_Click(object sender, EventArgs e)
         {
-                Button k = (Button)sender;
-                k.Image = Image.FromFile(k.Tag.ToString() + ".jpg");
-                tmp++;//Sau mỗi lần nhấn chuột tmp tăng lên 1 để tính số lần Clicks
-                lblClicks.Text = tmp.ToString();
-                k.Enabled = false;
-                Checkpair();
-                CheckLength();               
-                
+            if (lblYourtime.Visible == false)
+            {
+                max -= 1;
+            }
+            Button k = (Button)sender;
+            k.Image = Image.FromFile(k.Tag.ToString() + ".jpg");
+            var bm = new Bitmap(k.Image, new Size(400 / n, 280 / n));
+            k.Image = bm;
+            tmp++;//Sau mỗi lần nhấn chuột tmp tăng lên 1 để tính số lần Clicks                
+            lblClicks.Text = max.ToString();
+            k.Enabled = false;
+            Checkpair();
+            CheckLength();
         }
         int dem = 0;
         int Score = 0;
@@ -233,38 +181,71 @@ namespace Memory_Game
                             b[i].Enabled = true;
                             b[j].Enabled = true;
                             b[i].Visible = false;
-                            b[j].Visible = false;                            
-                            if(b[i].Text == "Lucky")
+                            b[j].Visible = false;
+                            if (b[i].Name == "Lucky")
                             {
-                                for (int k = 0; k < b.Length; k++)
-                                {                                    
-                                    b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
-                                    b[k].Enabled = false;
-                                }
+                                if (lblYourtime.Visible == false) max += 2;
+                                if (lblClicks.Visible == false)
+                                    for (int k = 0; k < b.Length; k++)
+                                    {
+                                        b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
+                                        var bm = new Bitmap(b[k].Image, new Size(400 / n, 280 / n));
+                                        b[k].Image = bm;
+                                        b[k].Enabled = false;
+                                    }
                                 System.Threading.Thread.Sleep(2000);
                                 for (int k = 0; k < b.Length; k++)
                                 {
                                     b[k].Enabled = true;
                                     b[k].Image = Image.FromFile("Default.jpg");
+                                    var bm = new Bitmap(b[k].Image, new Size(400 / n, 280 / n));
+                                    b[k].Image = bm;
                                 }
                             }
-                            Score = Score + 10;
+                            if (lblYourtime.Visible == true)
+                            {
+                                Score = Score + 10;
+                            }
                             lblYScore.Text = Score.ToString();
                             dem++;
                         }
                         else
                         {
                             wrongSound();
+                            if (max <= 0)
+                            {
+                                timer1.Stop();
+                                dem = 0;
+                                btnPause.Enabled = false;
+                                DialogResult result = MessageBox.Show("Click hết số lần cho phép mà vẫn thua, gà quá, có muốn thử lại không?", "Sợ gì, chơi luôn!", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.Yes)
+                                {
+                                    Replay();
+                                }
+                                else
+                                    for (int a = 0; a < b.Length; a++)
+                                    {
+                                        b[a].Visible = false;
+                                    }
+                            }
                             System.Threading.Thread.Sleep(500);
                             b[i].Enabled = true;
                             b[j].Enabled = true;
                             if (Score > 0)
-                                Score = Score - 5;
+                            {
+                                if (lblYourtime.Visible == false)
+                                    Score = Score - 15;
+                                else Score = Score - 5;
+                            }
                             lblYScore.Text = Score.ToString();
                             b[i].Image = Image.FromFile("Default.jpg");
+                            var bi = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                            b[i].Image = bi;
                             b[j].Image = Image.FromFile("Default.jpg");
+                            var bj = new Bitmap(b[j].Image, new Size(400 / n, 280 / n));
+                            b[j].Image = bj;
                         }
-                    }          
+                    }
                 }
 
             }
@@ -304,36 +285,42 @@ namespace Memory_Game
         + "Nhấn vào mỗi ô hình sẽ xuất hiện một hình ảnh và hãy nhớ hình ảnh này\n "
         + "   Lật tiếp hình thứ 2 nếu hình ảnh trong hình này giống hình ảnh của hình mở lần 1 thì 2 hình sẽ biến mất "
         + "ngược lại thì 2 hình này sẽ ẩn giá trị hình ảnh. "
-        + "Hãy thực hiện liên tục cho đến khi không còn hình nào.\n Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:\n"
-        + "- Thoát : Ctrl+F4\n- Dễ : F2\n- Bình thường : F3\n- Khó : F4\n- Tự chọn : F5\n- Chơi lại : F12\n"
+        + "Hãy thực hiện liên tục cho đến khi không còn hình nào.\n "
+        + "Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.\n"
+        + "Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:\n"
+        + "- Thoát : Ctrl+F4\n- Cơ bản : F2\n- Giới hạn thời gian : F3\n- Giới hạn số click : F4\n- Chơi lại : F12\n"
         + "- Lưu trạng thái đang chơi : Ctrl+S\n- Mở lại lần chơi gần đây : Ctrl+L\n- Hướng dẫn : F1\n- Thông tin : Ctrl + F12", "Hướng dẫn",
         MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         int ans = 0;
-        private void mnuCustom_Click(object sender, EventArgs e)
+
+        private void mnuNormal_Click(object sender, EventArgs e)
         {
-            
-            custom();
+            CurTime = new DateTime(2017, 7, 6, 0, 0, 0, 0);
+            lblYourtime.Text = "";
+            if (CurTime.Minute < 10)
+            {
+                if (CurTime.Second < 10)
+                    lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
+                else lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
+            }
+            else
+            {
+                if (CurTime.Second < 10)
+                    lblYourtime.Text = CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
+                else lblYourtime.Text = CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
+            }
+            Normal();
             tmp = 0;
             lblClicks.Text = tmp.ToString();
-            if (s>=10 && s <= 16)
-            {
-                time = 60;
-            }
-            
-            if (s <= 20 && s > 16)
-            {
-                time = 90;
-            }
-            mnuExpert.Enabled = false;
-            mnuIntermediate.Enabled = false;
-            mnuBeginner.Enabled = false;
-            mnuCustom.Enabled = false;
+            mnuStep.Enabled = false;
+            mnuTime.Enabled = false;
+            mnuNormal.Enabled = false;
             mnuReplay.Enabled = true;
             groupBox2.Visible = false;
             btnStart.Enabled = true;
-            label2.Visible = true;
-            progressBar1.Visible = true;
+            label2.Visible = false;
+            progressBar2.Visible = false;
             groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
@@ -342,50 +329,36 @@ namespace Memory_Game
             }
             ans = 1;
         }
-        private void mnuBeginner_Click(object sender, EventArgs e)
+        private void mnuTime_Click(object sender, EventArgs e)
         {
-            CurTime = new DateTime(2013, 1, 1, 0, 1, 0, 0);//thời gian khi chọn cấp độ này là 1 phút
-            lblYourtime.Text = "0" + CurTime.Minute.ToString() + " : " + "0" + CurTime.Second.ToString();
-            
-            beginner();
-            tmp = 0;
-            lblClicks.Text = tmp.ToString();
-            time = 60;
-            mnuExpert.Enabled = false;
-            mnuIntermediate.Enabled = false;
-            mnuCustom.Enabled = false;
-            mnuBeginner.Enabled = false;
-            mnuReplay.Enabled = true;
-            groupBox2.Visible = false;
-            btnStart.Enabled = true;
-            label2.Visible = true;
-            progressBar1.Visible = true;
-            groupBox2.Visible = false;
-            groupBox1.Visible = true;
-            if (ans == 0)
+            for (int i = 0; i < n; i++)
             {
-                InputName();
+                t *= 2;
             }
-            ans = 1;
-        }
-        private void mnuIntermediate_Click(object sender, EventArgs e)
-        {
-            CurTime = new DateTime(2013, 1, 1, 0, 1, 30, 0);//thời gian khi chọn cấp độ này là 1 phút 30 giây
-            lblYourtime.Text = "0" + CurTime.Minute.ToString() + " : " + CurTime.Second.ToString();
-            
-            Intermediate();
+            CurTime = new DateTime(2017, 7, 6, 0, t / 60, t % 60, 0);
+            if (CurTime.Minute < 10)
+            {
+                if (CurTime.Second < 10)
+                    lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
+                else lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
+            }
+            else
+            {
+                if (CurTime.Second < 10)
+                    lblYourtime.Text = CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
+                else lblYourtime.Text = CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
+            }
+            Time();
             tmp = 0;
             lblClicks.Text = tmp.ToString();
-            time = 90;
-            mnuExpert.Enabled = false;
-            mnuBeginner.Enabled = false;
-            mnuCustom.Enabled = false;
-            mnuIntermediate.Enabled = false;
+            mnuStep.Enabled = false;
+            mnuNormal.Enabled = false;
+            mnuTime.Enabled = false;
             mnuReplay.Enabled = true;
             groupBox2.Visible = false;
             btnStart.Enabled = true;
             label2.Visible = true;
-            progressBar1.Visible = true;
+            progressBar2.Visible = true;
             groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
@@ -395,24 +368,24 @@ namespace Memory_Game
             ans = 1;
         }
 
-        private void mnuExpert_Click(object sender, EventArgs e)
+        private void mnuStep_Click(object sender, EventArgs e)
         {
-            CurTime = new DateTime(2013, 1, 1, 0, 2, 0, 0);//thời gian khi chọn cấp độ này là 2 phút
-            lblYourtime.Text = "0" + CurTime.Minute.ToString() + " : " + "0" + CurTime.Second.ToString();
-            
-            Expert();
-            tmp = 0;
-            lblClicks.Text = tmp.ToString();
-            time = 120;
-            mnuBeginner.Enabled = false;
-            mnuIntermediate.Enabled = false;
-            mnuCustom.Enabled = false;
-            mnuExpert.Enabled = false;
+            Step();
+            for (int i = 0; i < n; i++)
+            {
+                max *= 2;
+            }
+            lblClicks.Text = max.ToString();
+            Score = 100;
+            lblYScore.Text = Score.ToString();
+            mnuNormal.Enabled = false;
+            mnuTime.Enabled = false;
+            mnuStep.Enabled = false;
             mnuReplay.Enabled = true;
             groupBox2.Visible = false;
             btnStart.Enabled = true;
-            label2.Visible = true;
-            progressBar1.Visible = true;
+            label2.Visible = false;
+            progressBar2.Visible = false;
             groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
@@ -425,30 +398,34 @@ namespace Memory_Game
         public void Replay()
         {
             timer1.Stop();
-           // timer2.Stop();
-            progressBar1.Maximum = 0;
+            // timer2.Stop();
+            progressBar2.Maximum = 0;
             btnStart.Enabled = true;
             for (int i = 0; i < b.Length; i++)
             {
                 b[i].Visible = false;//Xóa tất cả các button đã được tạo ra
             }
-            mnuBeginner.Enabled = true;
-            mnuIntermediate.Enabled = true;
-            mnuCustom.Enabled = true;
-            mnuExpert.Enabled = true;
+            mnuNormal.Enabled = true;
+            mnuTime.Enabled = true;
+            mnuStep.Enabled = true;
             mnuReplay.Enabled = false;
             btnPause.BackColor = Color.Blue;
             readFile();
-            Score = 0;
+            if (dem != b.Length / 2) Score = 0;
+            max = 2;
+            t = 2;
+            lblClicks.Text = max.ToString();
             lblYScore.Text = Score.ToString();
             lblYourtime.Text = "";
-            groupBox2.Visible = true;
-            label2.Visible = false;
-            progressBar1.Visible = false;
-            groupBox1.Visible = false;
+            if (lblClicks.Visible == false)
+            {
+                if (label2.Visible == false)
+                    mnuNormal.PerformClick();
+                else mnuTime.PerformClick();
+            }
+            else mnuStep.PerformClick();
             btnPause.Enabled = false;
             tmp = 0;
-            lblClicks.Text = tmp.ToString();//Reset lại số clicks
         }
         private void mnuReplay_Click(object sender, EventArgs e)
         {
@@ -457,8 +434,6 @@ namespace Memory_Game
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             Replay();
             flag = 1;
-
-
         }
         //Dùng để tạo âm thanh khi người chơi chọn sai
         void wrongSound()
@@ -478,10 +453,10 @@ namespace Memory_Game
             timer1.Start();
             for (int i = 0; i < b.Length; i++)
             {
-                b[i].Enabled = true;                
+                b[i].Enabled = true;
             }
             random();
-            
+
             btnStart.Enabled = false;
             btnPause.Enabled = true;
             btnPause.BackColor = Color.LightPink;
@@ -515,13 +490,15 @@ namespace Memory_Game
         public int i = 5;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = time;
-            progressBar1.Step = 1;
-            progressBar1.PerformStep();
+            progressBar2.Minimum = 0;
+            progressBar2.Maximum = t - 1;
+            progressBar2.Step = 1;
+            progressBar2.PerformStep();
             //Thời gian đếm ngược
             TimeSpan dt = new TimeSpan(0, 0, 0, 1, 0);
-            CurTime = CurTime.Subtract(dt);
+            if (lblClicks.Visible == false && label2.Visible == false)
+                CurTime = CurTime.Add(dt);
+            else CurTime = CurTime.Subtract(dt);
             lblYourtime.Text = CurTime.Minute.ToString() + " : " + CurTime.Second.ToString();
             if (CurTime.Minute == 0 && CurTime.Second == 0)//Hết thời gian thì thông báo thua cuộc
             {
@@ -529,7 +506,7 @@ namespace Memory_Game
                 MessageBox.Show("Hết thời gian!\nRất tiếc bạn đã thua, hãy cố gắng ở lần sau nhé.", "Thua rồi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 Replay();//Chơi lại
-            }            
+            }
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -592,41 +569,53 @@ namespace Memory_Game
                 timer1.Stop();
                 dem = 0;
                 btnPause.Enabled = false;
-                MessageBox.Show("Trò chơi đã kết thúc! Bạn đã làm rất tốt!\nĐiểm của bạn : "+lblYScore.Text+"\nSố lần Click : "+lblClicks.Text+"\nThời gian chơi: "+progressBar1.Value.ToString(), "Chúc mừng");
-                if (Score > intHighScores[0])
+                MessageBox.Show("Trò chơi đã kết thúc! Bạn đã làm rất tốt!\nĐiểm của bạn : " + lblYScore.Text + "\nSố lần Click : " + tmp.ToString() + "\nThời gian chơi: " + progressBar2.Value.ToString(), "Chúc mừng");
+                if (n <= 10)
                 {
-                    intHighScores[0] = Score;
-                    //Hiển thị form để người dùng nhập tên
-                    strUser[0] = Interaction.InputBox("Chúc mừng " + lblName.Text + " đã có số điểm cao nhất tính đến thời điểm hiện tại!"
-                    + "\nHãy nhập tên bạn muốn công khai với mọi người", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
-                    while (strUser[0].Length > 7)
+                    DialogResult result = MessageBox.Show("Bạn đã thắng màn này, có muốn chơi khó hơn không?", "WIN", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("Chỉ được phép nhập dưới 7 kí tự!\nTên này là tên ngắn gọn của bạn hoặc biệt danh!", "Chú ý",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        strUser[0] = Interaction.InputBox("Tên của bạn dài quá, nhập lại đi!\nÍt hơn 7 kí tự nhé!", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                        n += 2;
+                        Replay();                        
                     }
+                    else Replay();
+                    if (Score > intHighScores[0])
+                    {
+                        intHighScores[0] = Score;
+                        //Hiển thị form để người dùng nhập tên
+                        strUser[0] = Interaction.InputBox("Chúc mừng " + lblName.Text + " đã có số điểm cao nhất tính đến thời điểm hiện tại!"
+                        + "\nHãy nhập tên bạn muốn công khai với mọi người", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                        while (strUser[0].Length > 7)
+                        {
+                            MessageBox.Show("Chỉ được phép nhập dưới 7 kí tự!\nTên này là tên ngắn gọn của bạn hoặc biệt danh!", "Chú ý",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            strUser[0] = Interaction.InputBox("Tên của bạn dài quá, nhập lại đi!\nÍt hơn 7 kí tự nhé!", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                        }
+                    }
+                    //ghi điểm cao vào file highscore trong thư mục bin
+                    StreamWriter HighScoreStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/HighScores.txt", false);
+                    for (int g = 0; g < 3; g++)
+                    {
+                        HighScoreStreamWriter.WriteLine(intHighScores[g]);
+                    }
+                    HighScoreStreamWriter.Close();
+                    //Ghi lại tên của người đạt điểm cao
+                    StreamWriter strUserStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/User.txt", false);
+                    for (int h = 0; h < 3; h++)
+                    {
+                        strUserStreamWriter.WriteLine(strUser[h]);
+                    }
+                    strUserStreamWriter.Close();
+                    //Reset lại điểm của người chơi
+                    Score = 0;
+                    lblYScore.Text = Score.ToString();
+                    Replay();//Chơi lại
                 }
-                //ghi điểm cao vào file highscore trong thư mục bin
-                StreamWriter HighScoreStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/HighScores.txt", false);
-                for (int g = 0; g < 3; g++)
-                {
-                    HighScoreStreamWriter.WriteLine(intHighScores[g]);
-                }
-                HighScoreStreamWriter.Close();
-                //Ghi lại tên của người đạt điểm cao
-                StreamWriter strUserStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/User.txt", false);
-                for (int h = 0; h < 3; h++)
-                {
-                    strUserStreamWriter.WriteLine(strUser[h]);
-                }
-                strUserStreamWriter.Close();
-                //Reset lại điểm của người chơi
-                Score = 0;
-                lblYScore.Text = Score.ToString();
-                Replay();//Chơi lại
+                else
+                    MessageBox.Show("Chúc mừng bạn đã hoàn thành tất cả màn chơi, hãy quay trở lại sau khi chúng tôi cập nhật thêm các màn chơi khó hơn nhé!! Cảm ơn!!");
             }
         }
-        
+
         public void readFile()
         {
             try
@@ -661,11 +650,11 @@ namespace Memory_Game
                 MessageBox.Show("Lỗi khi đọc dữ liệu chơi lần cuối!");
             }
             lblHScore.Text = strUser[0] + "     " + intHighScores[0] + "\n" + strUser[1] + "     " + intHighScores[1] + "\n" + strUser[2] + "     " + intHighScores[2];
-            
+
         }
         private void mnuSaveCurrent_Click(object sender, EventArgs e)
         {
-                MessageBox.Show("Chức năng này tạm thời chưa sử dụng được!");
+            MessageBox.Show("Chức năng này tạm thời chưa sử dụng được!");
         }
 
         private void mnuLoadgame_Click(object sender, EventArgs e)
@@ -674,8 +663,8 @@ namespace Memory_Game
             MessageBox.Show("Chức năng này tạm thời chưa sử dụng được!");
         }
 
-       
+
 
     }
 
-}      
+}

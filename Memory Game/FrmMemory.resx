@@ -132,13 +132,12 @@
          - Lật tiếp ô thứ 2 nếu hình trong ô này giống hình của ô mở lần 1 thì 2 hình sẽ biến mất.
          - Ngược lại thì 2 hình này sẽ ẩn hình ảnh xuống.
          - Hãy thực hiện liên tục cho đến khi không còn ô nào.
+         - Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.
 	 - Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:
  - Thoát : Ctrl+F4
-		- Dễ : F2
-		- Bình thường : F3
-		- Khó : F4
-		- Tự chọn : F5
-		- Chơi lại : F12
+		- Cơ bản: F2
+		- Giới hạn thời gian : F3
+		- Giới hạn số click : F4
 - Lưu trạng thái đang chơi : Ctrl+S
 		- Mở lại lần chơi gần đây : Ctrl+L
 		- Hướng dẫn : F1
@@ -149,7 +148,7 @@
     <value>335, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>35</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

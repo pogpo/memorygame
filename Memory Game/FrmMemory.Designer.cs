@@ -30,10 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMemory));
-            this.mnuBeginner = new System.Windows.Forms.MenuItem();
-            this.mnuIntermediate = new System.Windows.Forms.MenuItem();
-            this.mnuExpert = new System.Windows.Forms.MenuItem();
-            this.mnuCustom = new System.Windows.Forms.MenuItem();
+            this.mnuNormal = new System.Windows.Forms.MenuItem();
+            this.mnuTime = new System.Windows.Forms.MenuItem();
+            this.mnuStep = new System.Windows.Forms.MenuItem();
             this.mnuNewGame = new System.Windows.Forms.MenuItem();
             this.mnuReplay = new System.Windows.Forms.MenuItem();
             this.mnuExit = new System.Windows.Forms.MenuItem();
@@ -62,58 +61,50 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblGiangVien = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mnuBeginner
+            // mnuNormal
             // 
-            this.mnuBeginner.Index = 0;
-            this.mnuBeginner.Shortcut = System.Windows.Forms.Shortcut.F2;
-            this.mnuBeginner.Text = "&Dễ";
-            this.mnuBeginner.Click += new System.EventHandler(this.mnuBeginner_Click);
+            this.mnuNormal.Index = 0;
+            this.mnuNormal.Shortcut = System.Windows.Forms.Shortcut.F2;
+            this.mnuNormal.Text = "&Cơ bản";
+            this.mnuNormal.Click += new System.EventHandler(this.mnuNormal_Click);
             // 
-            // mnuIntermediate
+            // mnuTime
             // 
-            this.mnuIntermediate.Index = 1;
-            this.mnuIntermediate.Shortcut = System.Windows.Forms.Shortcut.F3;
-            this.mnuIntermediate.Text = "&Bình thường";
-            this.mnuIntermediate.Click += new System.EventHandler(this.mnuIntermediate_Click);
+            this.mnuTime.Index = 1;
+            this.mnuTime.Shortcut = System.Windows.Forms.Shortcut.F3;
+            this.mnuTime.Text = "&Đếm thời gian";
+            this.mnuTime.Click += new System.EventHandler(this.mnuTime_Click);
             // 
-            // mnuExpert
+            // mnuStep
             // 
-            this.mnuExpert.Index = 2;
-            this.mnuExpert.Shortcut = System.Windows.Forms.Shortcut.F4;
-            this.mnuExpert.Text = "&Khó";
-            this.mnuExpert.Click += new System.EventHandler(this.mnuExpert_Click);
-            // 
-            // mnuCustom
-            // 
-            this.mnuCustom.Index = 3;
-            this.mnuCustom.Shortcut = System.Windows.Forms.Shortcut.F5;
-            this.mnuCustom.Text = "Tự &chọn...";
-            this.mnuCustom.Click += new System.EventHandler(this.mnuCustom_Click);
+            this.mnuStep.Index = 2;
+            this.mnuStep.Shortcut = System.Windows.Forms.Shortcut.F4;
+            this.mnuStep.Text = "&Đếm bước";
+            this.mnuStep.Click += new System.EventHandler(this.mnuStep_Click);
             // 
             // mnuNewGame
             // 
             this.mnuNewGame.Index = 0;
             this.mnuNewGame.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuBeginner,
-            this.mnuIntermediate,
-            this.mnuExpert,
-            this.mnuCustom,
+            this.mnuNormal,
+            this.mnuTime,
+            this.mnuStep,
             this.mnuReplay});
             this.mnuNewGame.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
             this.mnuNewGame.Text = "&Trò chơi mới";
             // 
             // mnuReplay
             // 
-            this.mnuReplay.Index = 4;
+            this.mnuReplay.Index = 3;
             this.mnuReplay.Shortcut = System.Windows.Forms.Shortcut.F12;
             this.mnuReplay.Text = "Chơi &lại";
             this.mnuReplay.Click += new System.EventHandler(this.mnuReplay_Click);
@@ -238,7 +229,7 @@
             this.lblClicks.Location = new System.Drawing.Point(88, 191);
             this.lblClicks.Name = "lblClicks";
             this.lblClicks.Size = new System.Drawing.Size(17, 19);
-            this.lblClicks.TabIndex = 5;
+            this.lblClicks.TabIndex = 0;
             this.lblClicks.Text = "0";
             // 
             // timer1
@@ -374,19 +365,11 @@
             this.lblGiangVien.Text = "Trò chơi này được viết theo đề tài đồ án môn Lập trình trực quan. Giảng viên hướn" +
     "g dẫn: Huỳnh Tuấn Anh";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(172, 448);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(407, 23);
-            this.progressBar1.Step = 1;
-            this.progressBar1.TabIndex = 0;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(78, 456);
+            this.label2.Location = new System.Drawing.Point(78, 462);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 155;
@@ -396,7 +379,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(24, 22);
+            this.label1.Location = new System.Drawing.Point(21, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(545, 333);
             this.label1.TabIndex = 151;
@@ -419,6 +402,13 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(170, 457);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(407, 23);
+            this.progressBar2.TabIndex = 156;
+            // 
             // FrmMemory
             // 
             this.AcceptButton = this.btnStart;
@@ -428,13 +418,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 571);
+            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblTen);
             this.Controls.Add(this.lblGiangVien);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.progressBar1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -454,10 +444,9 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuItem mnuBeginner;
-        private System.Windows.Forms.MenuItem mnuIntermediate;
-        private System.Windows.Forms.MenuItem mnuExpert;
-        private System.Windows.Forms.MenuItem mnuCustom;
+        private System.Windows.Forms.MenuItem mnuNormal;
+        private System.Windows.Forms.MenuItem mnuTime;
+        private System.Windows.Forms.MenuItem mnuStep;
         private System.Windows.Forms.MenuItem mnuNewGame;
         private System.Windows.Forms.MenuItem mnuExit;
         private System.Windows.Forms.MenuItem menuItem1;
@@ -485,12 +474,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblGiangVien;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 }
 
