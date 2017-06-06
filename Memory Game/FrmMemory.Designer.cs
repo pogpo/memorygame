@@ -487,6 +487,7 @@
             // btnPlay
             // 
             this.btnPlay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.ForeColor = System.Drawing.Color.Transparent;
             this.btnPlay.Image = global::Memory_Game.Properties.Resources.Play;
@@ -501,6 +502,7 @@
             // btnNormal
             // 
             this.btnNormal.BackColor = System.Drawing.Color.Transparent;
+            this.btnNormal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNormal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormal.Image = global::Memory_Game.Properties.Resources.Co_ban;
             this.btnNormal.Location = new System.Drawing.Point(100, 398);
@@ -514,6 +516,7 @@
             // btnStep
             // 
             this.btnStep.BackColor = System.Drawing.Color.Transparent;
+            this.btnStep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStep.Image = global::Memory_Game.Properties.Resources.Dem_buoc;
             this.btnStep.Location = new System.Drawing.Point(313, 398);
@@ -527,6 +530,7 @@
             // btnTime
             // 
             this.btnTime.BackColor = System.Drawing.Color.Transparent;
+            this.btnTime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTime.Image = global::Memory_Game.Properties.Resources.Dem_thoi_gian;
             this.btnTime.Location = new System.Drawing.Point(526, 398);
@@ -540,6 +544,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.Transparent;
             this.btnExit.Image = global::Memory_Game.Properties.Resources.exit;
@@ -554,6 +559,7 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.Transparent;
             this.btnBack.Image = global::Memory_Game.Properties.Resources.back;
