@@ -22,11 +22,11 @@ using System.Runtime.InteropServices;
 namespace Memory_Game
 {
     public partial class FrmMemory : Form
-    {        
+    {
         public FrmMemory()
-        {            
+        {
             bg.Play();
-            InitializeComponent();             
+            InitializeComponent();
             timer2.Start();
             mnuReplay.Enabled = false;
             mnuSaveCurrent.Enabled = false;
@@ -38,6 +38,8 @@ namespace Memory_Game
             label2.Visible = false;
             progressBar2.Visible = false;
             groupBox1.Visible = false;
+            pictureBox1.SendToBack();
+            pictureBox2.SendToBack();
             readFile();
         }
 
@@ -49,15 +51,17 @@ namespace Memory_Game
         SoundPlayer bg = new SoundPlayer("BG.wav");
         //Phát sinh các button động với số lượng theo các mức độ do người chơi chọn
         public void Step()
-        {     
+        {
             b = new Button[n * n];
             int k = 0, j = 1;
             label4.Visible = false;
             lblYourtime.Visible = false;
+            btnHint.Visible = true;
+            btnHint.Enabled = false;
             if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
             else
             {
-                if (n==4) BackgroundImage = Image.FromFile("BG_2.png");
+                if (n == 4) BackgroundImage = Image.FromFile("BG_2.png");
                 else
                 {
                     if (n == 6) BackgroundImage = Image.FromFile("BG_3.png");
@@ -68,13 +72,15 @@ namespace Memory_Game
                     }
                 }
             }
+            
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
+                b[i].BringToFront();                
                 b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
                 var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
-                b[i].Image = bm;                
+                b[i].Image = bm;
                 b[i].Location = new Point(115 + k * 400 / n, n * 15 + j * 280 / n);
                 b[i].Enabled = false;
                 b[i].Click += new EventHandler(b_Click);
@@ -85,7 +91,8 @@ namespace Memory_Game
                     k = 0; j++;
                 }
             }
-
+            pictureBox1.SendToBack();
+            pictureBox2.SendToBack();
         }
         public void Time()
         {
@@ -94,6 +101,8 @@ namespace Memory_Game
             label5.Visible = false;
             lblClicks.Visible = false;
             progressBar2.Visible = true;
+            btnHint.Visible = true;
+            btnHint.Enabled = false;
             if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
             else
             {
@@ -111,6 +120,7 @@ namespace Memory_Game
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
+                b[i].BringToFront();
                 b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
                 var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
@@ -125,6 +135,8 @@ namespace Memory_Game
                     k = 0; j++;
                 }
             }
+            pictureBox1.SendToBack();
+            pictureBox2.SendToBack();
         }
         public void Normal()
         {
@@ -133,6 +145,8 @@ namespace Memory_Game
             label5.Visible = false;
             lblClicks.Visible = false;
             progressBar2.Visible = false;
+            btnHint.Visible = true;
+            btnHint.Enabled = false;
             if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
             else
             {
@@ -150,6 +164,7 @@ namespace Memory_Game
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
+                b[i].BringToFront();
                 b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
                 var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
@@ -164,6 +179,8 @@ namespace Memory_Game
                     k = 0; j++;
                 }
             }
+            pictureBox1.SendToBack();
+            pictureBox2.SendToBack();
         }
 
         public void random()
@@ -182,15 +199,19 @@ namespace Memory_Game
                 b[i].Tag = list[x];//random phần tử có index x trong list.
                 list.RemoveAt(x);//Xóa phần tử đã được random trong list.
             }
-            int lucky = r.Next(0, b.Length / 2);
-            for (int i = 0; i < b.Length / 2; i++)
+            if (n > 2)
             {
-                if (i == lucky) b[i].Name = "Lucky";
+                int lucky = r.Next(0, b.Length / 2);
+                for (int i = 0; i < b.Length / 2; i++)
+                {
+                    if (i == lucky) b[i].Name = "Lucky";
+                }
             }
         }
         int tmp = 0;//Lưu giá trị số lần Clicks 
         int max = 2;
         int t = 2;
+        int Hint = 3;
         public void b_Click(object sender, EventArgs e)
         {
             if (lblYourtime.Visible == false)
@@ -235,15 +256,21 @@ namespace Memory_Game
                             b[j].Visible = false;
                             if (b[i].Name == "Lucky")
                             {
+                                pictureBox1.Image = Image.FromFile("firework 2.gif");
+                                pictureBox2.Image = Image.FromFile("firework 1.gif");
+                                MessageBox.Show("Chúc mừng bạn đã lật được cặp hình may mắn, hãy sẵn sàng xem qua tất cả các hình trong 2s nhé!!", "LUCKY!!!",
+        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                pictureBox1.Image = null;
+                                pictureBox2.Image = null;
                                 if (lblYourtime.Visible == false) max += 2;
                                 if (label2.Visible == true) t += 5;
-                                    for (int k = 0; k < b.Length; k++)
-                                    {
-                                        b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
-                                        var bm = new Bitmap(b[k].Image, new Size(400 / n, 280 / n));
-                                        b[k].Image = bm;
-                                        b[k].Enabled = false;
-                                    }
+                                for (int k = 0; k < b.Length; k++)
+                                {
+                                    b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
+                                    var bm = new Bitmap(b[k].Image, new Size(400 / n, 280 / n));
+                                    b[k].Image = bm;
+                                    b[k].Enabled = false;
+                                }
                                 System.Threading.Thread.Sleep(2000);
                                 for (int k = 0; k < b.Length; k++)
                                 {
@@ -333,9 +360,10 @@ namespace Memory_Game
             r = MessageBox.Show("Bạn có thực sự muốn thoát trò chơi này?", "Xác nhận",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button1);            
+                MessageBoxDefaultButton.Button1);
             if (r == DialogResult.No)
                 e.Cancel = true;
+            else bg.Stop();
         }
         private void mnuInstructions_Click(object sender, EventArgs e)
         {
@@ -347,6 +375,7 @@ namespace Memory_Game
         + "   Lật tiếp hình thứ 2 nếu hình ảnh trong hình này giống hình ảnh của hình mở lần 1 thì 2 hình sẽ biến mất "
         + "ngược lại thì 2 hình này sẽ ẩn giá trị hình ảnh.\n"
         + "   Hãy thực hiện liên tục cho đến khi không còn hình nào.\n"
+        + "   Từ màn 2 trở đi, mỗi màn bạn có thể được gợi ý tối đa 3 cặp hình đúng bằng cách bấm vào biểu tượng con số phía dưới nút tắt/bật âm thanh.\n"
         + "   Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.\n"
         + "   Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:\n"
         + "- Thoát : Ctrl+F4\n- Cơ bản : F2\n- Giới hạn thời gian : F3\n- Giới hạn số click : F4\n- Chơi lại : F12\n"
@@ -414,7 +443,7 @@ namespace Memory_Game
             }
             ans = 1;
         }
-        
+
         private void mnuStep_Click(object sender, EventArgs e)
         {
             Sound.Visible = true;
@@ -425,7 +454,7 @@ namespace Memory_Game
                 max *= 2;
             }
             lblClicks.Text = max.ToString();
-            Score = 5*max/2;
+            Score = 5 * max / 2;
             lblYScore.Text = Score.ToString();
             mnuNormal.Enabled = false;
             mnuTime.Enabled = false;
@@ -445,12 +474,13 @@ namespace Memory_Game
         }
         //Chơi lại 
         public void Replay()
-        {           
+        {
             if (playing) bg.Play();
             timer1.Stop();
             // timer2.Stop();
             progressBar2.Maximum = 0;
             btnStart.Enabled = true;
+            btnHint.Enabled = false;
             for (int i = 0; i < b.Length; i++)
             {
                 b[i].Visible = false;//Xóa tất cả các button đã được tạo ra
@@ -465,6 +495,10 @@ namespace Memory_Game
             dem = 0;
             max = 2;
             t = 2;
+            Hint = 3;
+            btnHint.Image = Image.FromFile("number " + Hint.ToString() + ".jpg");
+            var bm = new Bitmap(btnHint.Image, new Size(48, 48));
+            btnHint.Image = bm;
             lblClicks.Text = max.ToString();
             lblYScore.Text = Score.ToString();
             lblYourtime.Text = "";
@@ -486,12 +520,13 @@ namespace Memory_Game
             Replay();
             flag = 1;
         }
-                     
+
 
         //Button Start đề kích hoạt form
         private void btnStart_Click(object sender, EventArgs e)
         {
             timer1.Start();
+            if (n > 2) btnHint.Enabled = true;
             for (int i = 0; i < b.Length; i++)
             {
                 b[i].Enabled = true;
@@ -725,13 +760,13 @@ namespace Memory_Game
                 f.Show();
                 this.Hide();
             }
-        }       
+        }
 
         private void FrmMemory_Load(object sender, EventArgs e)
         {
-            
+
         }
-        
+
         private void Sound_Click(object sender, EventArgs e)
         {
             if (bg.IsLoadCompleted)
@@ -754,7 +789,54 @@ namespace Memory_Game
                 }
             }
         }
-        
-    }
 
+        private void Hint_Click(object sender, EventArgs e)
+        {            
+            if (Hint > 0)
+            {
+                btnHint.Enabled = false;
+                Hint -= 1;
+                btnHint.Image = Image.FromFile("number " + Hint.ToString() + ".jpg");
+                var bm = new Bitmap(btnHint.Image, new Size(48, 48));
+                btnHint.Image = bm;
+                int hint, hint_;
+                hint = r.Next(0, b.Length);
+                for(;;)
+                {
+                    hint_ = r.Next(0, b.Length);
+                    if (hint != hint_ && b[hint].Tag.ToString() == b[hint_].Tag.ToString())
+                        break;
+                }
+                int sl1 = 0, sl2 = 0;
+                for (int i = 0; i < b.Length; i++)
+                {
+                    if (i == hint || i == hint_)
+                    {
+                        b[i].Image = Image.FromFile(b[i].Tag.ToString() + ".jpg");
+                        var bh = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                        b[i].Image = bh;
+                        b[i].Enabled = false;
+                        sl1 += 1;
+                    }
+                    if (sl1 == 2) break;
+                }
+                System.Threading.Thread.Sleep(2000);
+                for (int i = 0; i < b.Length; i++)
+                {
+                    if (i == hint || i == hint_)
+                    {
+                        b[i].Image = Image.FromFile("Default.jpg");
+                        var bh = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                        b[i].Image = bh;
+                        b[i].Enabled = true;
+                        sl2 += 1;
+                    }
+                    if (sl2 == 2) break;
+                }
+                btnHint.Enabled = true;
+            }
+            if (Hint == 0) btnHint.Enabled = false;
+        }
+
+    }
 }

@@ -124,7 +124,28 @@
   <data name="Loading_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loading_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="number 0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\number 0.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sound_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Sound_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="firework" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\firework 1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="number 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\number 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="number 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\number 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="number 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\number 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="firework 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\firework 1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="firework 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\firework 2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

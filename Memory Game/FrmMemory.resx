@@ -132,8 +132,9 @@
          - Lật tiếp ô thứ 2 nếu hình trong ô này giống hình của ô mở lần 1 thì 2 hình sẽ biến mất.
          - Ngược lại thì 2 hình này sẽ ẩn hình ảnh xuống.
          - Hãy thực hiện liên tục cho đến khi không còn ô nào.
+         - Từ màn 2 trở đi, mỗi màn bạn có thể được gợi ý tối đa 3 cặp hình đúng bằng cách bấm vào biểu tượng con số phía dưới nút tắt/bật âm thanh (góc trên bên phải cửa sổ).
          - Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.
-	 - Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:
+	   Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:
  - Thoát : Ctrl+F4
 		- Cơ bản: F2
 		- Giới hạn thời gian : F3

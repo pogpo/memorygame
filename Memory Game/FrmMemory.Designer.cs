@@ -68,8 +68,13 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.Sound = new System.Windows.Forms.Button();
+            this.btnHint = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuNormal
@@ -321,7 +326,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackColor = System.Drawing.Color.PapayaWhip;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label3);
@@ -386,11 +391,11 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(21, 24);
+            this.label1.Location = new System.Drawing.Point(21, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(545, 333);
+            this.label1.Size = new System.Drawing.Size(545, 312);
             this.label1.TabIndex = 151;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -400,7 +405,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Red;
-            this.groupBox2.Location = new System.Drawing.Point(124, 131);
+            this.groupBox2.Location = new System.Drawing.Point(124, 120);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(596, 362);
             this.groupBox2.TabIndex = 150;
@@ -429,6 +434,36 @@
             this.Sound.UseVisualStyleBackColor = true;
             this.Sound.Click += new System.EventHandler(this.Sound_Click);
             // 
+            // btnHint
+            // 
+            this.btnHint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHint.Image = global::Memory_Game.Properties.Resources.number_3;
+            this.btnHint.Location = new System.Drawing.Point(774, 50);
+            this.btnHint.Name = "btnHint";
+            this.btnHint.Size = new System.Drawing.Size(48, 48);
+            this.btnHint.TabIndex = 159;
+            this.btnHint.UseVisualStyleBackColor = true;
+            this.btnHint.Visible = false;
+            this.btnHint.Click += new System.EventHandler(this.Hint_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(47, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox1.TabIndex = 160;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Location = new System.Drawing.Point(346, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(500, 281);
+            this.pictureBox2.TabIndex = 161;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmMemory
             // 
             this.AcceptButton = this.btnStart;
@@ -438,6 +473,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 571);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnHint);
             this.Controls.Add(this.Sound);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.groupBox1);
@@ -446,6 +483,7 @@
             this.Controls.Add(this.lblTen);
             this.Controls.Add(this.lblGiangVien);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -459,6 +497,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,6 +544,9 @@
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.Button Sound;
+        private System.Windows.Forms.Button btnHint;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
