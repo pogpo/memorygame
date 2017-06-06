@@ -414,7 +414,7 @@
             this.Sound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Sound.ForeColor = System.Drawing.Color.Transparent;
             this.Sound.Image = global::Memory_Game.Properties.Resources.Sound_;
-            this.Sound.Location = new System.Drawing.Point(759, 2);
+            this.Sound.Location = new System.Drawing.Point(584, 12);
             this.Sound.Name = "Sound";
             this.Sound.Size = new System.Drawing.Size(66, 65);
             this.Sound.TabIndex = 158;
@@ -446,11 +446,12 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(346, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(337, 24);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(500, 281);
             this.pictureBox2.TabIndex = 161;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnRank
             // 
@@ -459,7 +460,7 @@
             this.btnRank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRank.ForeColor = System.Drawing.Color.Transparent;
             this.btnRank.Image = global::Memory_Game.Properties.Resources.rank;
-            this.btnRank.Location = new System.Drawing.Point(759, 73);
+            this.btnRank.Location = new System.Drawing.Point(665, 12);
             this.btnRank.Name = "btnRank";
             this.btnRank.Size = new System.Drawing.Size(66, 65);
             this.btnRank.TabIndex = 162;
@@ -475,7 +476,7 @@
             this.btnIns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIns.ForeColor = System.Drawing.Color.Transparent;
             this.btnIns.Image = global::Memory_Game.Properties.Resources.Instruction;
-            this.btnIns.Location = new System.Drawing.Point(759, 145);
+            this.btnIns.Location = new System.Drawing.Point(748, 12);
             this.btnIns.Name = "btnIns";
             this.btnIns.Size = new System.Drawing.Size(66, 65);
             this.btnIns.TabIndex = 163;

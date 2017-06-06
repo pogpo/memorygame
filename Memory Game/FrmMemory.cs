@@ -39,14 +39,35 @@ namespace Memory_Game
             progressBar2.Visible = false;
             groupBox1.Visible = false;
             Sound.FlatAppearance.BorderSize = 0;
+            Sound.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.Sound, "Bật tắt âm thanh");
+            System.Windows.Forms.ToolTip ToolTip2 = new System.Windows.Forms.ToolTip();
+            ToolTip2.SetToolTip(this.btnRank, "Bảng xếp hạng");
+            System.Windows.Forms.ToolTip ToolTip3 = new System.Windows.Forms.ToolTip();
+            ToolTip3.SetToolTip(this.btnIns, "Hướng dẫn");
+            System.Windows.Forms.ToolTip ToolTip4 = new System.Windows.Forms.ToolTip();
+            ToolTip4.SetToolTip(this.btnBack, "Quay lại");
+            System.Windows.Forms.ToolTip ToolTip5 = new System.Windows.Forms.ToolTip();
+            ToolTip5.SetToolTip(this.btnExit, "Thoát");
+            System.Windows.Forms.ToolTip ToolTip6 = new System.Windows.Forms.ToolTip();
+            ToolTip6.SetToolTip(this.btnPlay, "Bắt đầu");
             btnRank.FlatAppearance.BorderSize = 0;
+            btnRank.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnIns.FlatAppearance.BorderSize = 0;
+            btnIns.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnPlay.FlatAppearance.BorderSize = 0;
+            btnPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnNormal.FlatAppearance.BorderSize = 0;
+            btnNormal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnStep.FlatAppearance.BorderSize = 0;
+            btnStep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnTime.FlatAppearance.BorderSize = 0;
+            btnTime.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btnPlay.Visible = true;
             btnNormal.Visible = true;
             btnStep.Visible = true;
@@ -917,6 +938,9 @@ namespace Memory_Game
             mnuExit.PerformClick();
         }
 
-        
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

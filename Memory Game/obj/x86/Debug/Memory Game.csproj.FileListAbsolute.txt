@@ -145,3 +145,14 @@ C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Deb
 C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
 C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\bin\Debug\Memory Game.exe
 C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\bin\Debug\Memory Game.exe
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csprojResolveAssemblyReference.cache
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.ResolveComReference.cache
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.FrmMemory.resources
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.exe
+C:\Users\Pig Bông\OneDrive\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.pdb
