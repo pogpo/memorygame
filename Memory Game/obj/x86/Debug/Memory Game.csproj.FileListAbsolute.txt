@@ -87,3 +87,12 @@ C:\Users\Kai\Desktop\Source Code __ _n C#\C#\game luyện trí nhớ Moving Memo
 C:\Users\Kai\Desktop\Source Code __ _n C#\C#\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
 C:\Users\Kai\Desktop\Source Code __ _n C#\C#\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
 C:\Users\Kai\Desktop\Source Code __ _n C#\C#\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.exe
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.pdb
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.exe
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csprojResolveAssemblyReference.cache
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.FrmMemory.resources
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
+C:\Users\Kai\Desktop\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache

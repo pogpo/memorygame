@@ -369,10 +369,10 @@
             this.lblGiangVien.BackColor = System.Drawing.Color.Transparent;
             this.lblGiangVien.Location = new System.Drawing.Point(169, 496);
             this.lblGiangVien.Name = "lblGiangVien";
-            this.lblGiangVien.Size = new System.Drawing.Size(518, 13);
+            this.lblGiangVien.Size = new System.Drawing.Size(512, 13);
             this.lblGiangVien.TabIndex = 148;
             this.lblGiangVien.Text = "Trò chơi này được viết theo đề tài đồ án môn Lập trình trực quan. Giảng viên hướn" +
-    "g dẫn: Nguyễn Tuấn Anh";
+    "g dẫn: Huỳnh Tuấn Anh";
             // 
             // progressBar1
             // 

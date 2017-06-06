@@ -54,10 +54,10 @@ namespace Memory_Game
             {
                 b[i] = new Button();
                 b[i].Size = new Size(100, 70);
-                b[i].Text = "";
                 b[i].Image = Image.FromFile("Default.jpg");
                 b[i].Location = new Point(70 + k * 105, 70 + j * 75);
                 b[i].Enabled = false;
+                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
@@ -78,10 +78,10 @@ namespace Memory_Game
 
                 b[i] = new Button();
                 b[i].Size = new Size(100, 70);
-                b[i].Text = "";
                 b[i].Image = Image.FromFile("Default.jpg");
                 b[i].Location = new Point(115 + k * 105, 75 + j * 75);
                 b[i].Enabled = false;
+                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
@@ -102,10 +102,10 @@ namespace Memory_Game
 
                 b[i] = new Button();
                 b[i].Size = new Size(100, 70);
-                b[i].Text = "";
                 b[i].Image = Image.FromFile("Default.jpg");
                 b[i].Location = new Point(115 + k * 105, 100 + j * 75);
                 b[i].Enabled = false;
+                b[i].ForeColor = b[i].BackColor;
                 b[i].Click += new EventHandler(b_Click);
                 this.Controls.Add(b[i]);
                 k++;
@@ -144,8 +144,8 @@ namespace Memory_Game
                         b[i].Image = Image.FromFile("Default.jpg");
                         b[i].Location = new Point(115 + k * 105, 75 + j * 75);
                         b[i].Enabled = false;
+                        b[i].ForeColor = b[i].BackColor;
                         b[i].Click += new EventHandler(b_Click);
-                        b[i].Text = "";
                         this.Controls.Add(b[i]);
                         k++;
                         if (k == 4)
@@ -163,8 +163,8 @@ namespace Memory_Game
                         b[i].Image = Image.FromFile("Default.jpg");
                         b[i].Location = new Point(75 + k * 105, 65 + j * 75);
                         b[i].Enabled = false;
+                        b[i].ForeColor = b[i].BackColor;
                         b[i].Click += new EventHandler(b_Click);
-                        b[i].Text = "";
                         this.Controls.Add(b[i]);
                         k++;
                         if (k == 5)
@@ -178,7 +178,7 @@ namespace Memory_Game
                 }
             }
         }
-
+        
         public void random()
         {
             //Nửa mảng button cho random các giá trị từ 0 đến 9
@@ -195,8 +195,13 @@ namespace Memory_Game
                 b[i].Tag = list[x];//random phần tử có index x trong list.
                 list.RemoveAt(x);//Xóa phần tử đã được random trong list.
             }
-        }
-        int tmp = 0;//Lưu giá trị số lần Clicks
+            int lucky = r.Next(0, b.Length / 2);
+            for(int i = 0; i < b.Length/2; i++)
+            {
+                if (i == lucky) b[i].Text = "Lucky";
+            }
+        }        
+        int tmp = 0;//Lưu giá trị số lần Clicks        
         public void b_Click(object sender, EventArgs e)
         {
                 Button k = (Button)sender;
@@ -204,7 +209,6 @@ namespace Memory_Game
                 tmp++;//Sau mỗi lần nhấn chuột tmp tăng lên 1 để tính số lần Clicks
                 lblClicks.Text = tmp.ToString();
                 k.Enabled = false;
-                k.Text = " ";
                 Checkpair();
                 CheckLength();               
                 
@@ -229,7 +233,21 @@ namespace Memory_Game
                             b[i].Enabled = true;
                             b[j].Enabled = true;
                             b[i].Visible = false;
-                            b[j].Visible = false;
+                            b[j].Visible = false;                            
+                            if(b[i].Text == "Lucky")
+                            {
+                                for (int k = 0; k < b.Length; k++)
+                                {                                    
+                                    b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
+                                    b[k].Enabled = false;
+                                }
+                                System.Threading.Thread.Sleep(2000);
+                                for (int k = 0; k < b.Length; k++)
+                                {
+                                    b[k].Enabled = true;
+                                    b[k].Image = Image.FromFile("Default.jpg");
+                                }
+                            }
                             Score = Score + 10;
                             lblYScore.Text = Score.ToString();
                             dem++;
@@ -240,17 +258,13 @@ namespace Memory_Game
                             System.Threading.Thread.Sleep(500);
                             b[i].Enabled = true;
                             b[j].Enabled = true;
-
                             if (Score > 0)
                                 Score = Score - 5;
                             lblYScore.Text = Score.ToString();
                             b[i].Image = Image.FromFile("Default.jpg");
                             b[j].Image = Image.FromFile("Default.jpg");
                         }
-                    }
-                    b[i].Text = " ";
-                    b[j].Text = " ";
-
+                    }          
                 }
 
             }
@@ -464,12 +478,7 @@ namespace Memory_Game
             timer1.Start();
             for (int i = 0; i < b.Length; i++)
             {
-                if (b[i].Text == "")
-                {
-                    b[i].Enabled = true;
-                }
-                else
-                    b[i].Enabled = false;
+                b[i].Enabled = true;                
             }
             random();
             
@@ -484,9 +493,13 @@ namespace Memory_Game
             if (btnPause.Text == "Tạm &dừng")
             {
                 timer1.Stop();
+
                 btnPause.Text = "&Tiếp tục";
                 for (int i = 0; i < b.Length; i++)
+                {
+                    b[i].Image = Image.FromFile("Default.jpg");
                     b[i].Enabled = false;
+                }
             }
             else
             {
@@ -647,7 +660,7 @@ namespace Memory_Game
             {
                 MessageBox.Show("Lỗi khi đọc dữ liệu chơi lần cuối!");
             }
-            lblHScore.Text = strUser[0] + "..." + intHighScores[0];
+            lblHScore.Text = strUser[0] + "     " + intHighScores[0] + "\n" + strUser[1] + "     " + intHighScores[1] + "\n" + strUser[2] + "     " + intHighScores[2];
             
         }
         private void mnuSaveCurrent_Click(object sender, EventArgs e)

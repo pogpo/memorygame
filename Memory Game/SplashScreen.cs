@@ -28,19 +28,19 @@ namespace Memory_Game
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Minimum = 300;
-            progressBar1.Maximum = 10000;
-            progressBar1.Step = 100;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 8800;
+            progressBar1.Step = 300;
             lblPhanTram.Text = x.ToString();
             progressBar1.PerformStep();
-            if (x == 101)
+            if (x == 100)
             {
                 timer1.Stop();
                 FrmMemory f = new FrmMemory();
-                f.Show();
-                this.Hide();
+                btnOk.Enabled = true;
+                btnOk.BackColor = Color.Red;
             }
-            x = x + 1;
+            x = x + 3;
         }
     }
 }
