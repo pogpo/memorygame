@@ -176,7 +176,7 @@ namespace Memory_Game
                         //Nếu 2 button đều đã mở thì kiểm tra tiếp xem tag của 2 button có bằng nhau không, nếu bằng nhau thì xóa button.
                         if (b[i].Tag.ToString() == b[j].Tag.ToString())
                         {
-                            correctSound();
+                            if (menuItem4.Text == "Tắt âm thanh") correctSound();
                             System.Threading.Thread.Sleep(500);
                             b[i].Enabled = true;
                             b[j].Enabled = true;
@@ -211,7 +211,7 @@ namespace Memory_Game
                         }
                         else
                         {
-                            wrongSound();
+                            if (menuItem4.Text == "Tắt âm thanh") wrongSound();
                             if (max <= 0)
                             {
                                 timer1.Stop();
@@ -236,6 +236,7 @@ namespace Memory_Game
                                 if (lblYourtime.Visible == false)
                                     Score = Score - 15;
                                 else Score = Score - 5;
+                                if (Score < 0) Score = 0;
                             }
                             lblYScore.Text = Score.ToString();
                             b[i].Image = Image.FromFile("Default.jpg");
@@ -358,7 +359,7 @@ namespace Memory_Game
                 max *= 2;
             }
             lblClicks.Text = max.ToString();
-            Score = 100;
+            Score = 5*max/2;
             lblYScore.Text = Score.ToString();
             mnuNormal.Enabled = false;
             mnuTime.Enabled = false;
@@ -561,40 +562,42 @@ namespace Memory_Game
                     if (result == DialogResult.Yes)
                     {
                         n += 2;
-                        Replay();                        
+                        Replay();
                     }
-                    else Replay();
-                    if (Score > intHighScores[0])
+                    else
                     {
-                        intHighScores[0] = Score;
-                        //Hiển thị form để người dùng nhập tên
-                        strUser[0] = Interaction.InputBox("Chúc mừng " + lblName.Text + " đã có số điểm cao nhất tính đến thời điểm hiện tại!"
-                        + "\nHãy nhập tên bạn muốn công khai với mọi người", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
-                        while (strUser[0].Length > 7)
+                        if (Score > intHighScores[0])
                         {
-                            MessageBox.Show("Chỉ được phép nhập dưới 7 kí tự!\nTên này là tên ngắn gọn của bạn hoặc biệt danh!", "Chú ý",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            strUser[0] = Interaction.InputBox("Tên của bạn dài quá, nhập lại đi!\nÍt hơn 7 kí tự nhé!", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                            intHighScores[0] = Score;
+                            //Hiển thị form để người dùng nhập tên
+                            strUser[0] = Interaction.InputBox("Chúc mừng " + lblName.Text + " đã có số điểm cao nhất tính đến thời điểm hiện tại!"
+                            + "\nHãy nhập tên bạn muốn công khai với mọi người", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                            while (strUser[0].Length > 7)
+                            {
+                                MessageBox.Show("Chỉ được phép nhập dưới 7 kí tự!\nTên này là tên ngắn gọn của bạn hoặc biệt danh!", "Chú ý",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                strUser[0] = Interaction.InputBox("Tên của bạn dài quá, nhập lại đi!\nÍt hơn 7 kí tự nhé!", "Điểm cao", "Hãy nhập tên để mọi người biết!", 400, 300);
+                            }
                         }
+                        //ghi điểm cao vào file highscore trong thư mục bin
+                        StreamWriter HighScoreStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/HighScores.txt", false);
+                        for (int g = 0; g < 3; g++)
+                        {
+                            HighScoreStreamWriter.WriteLine(intHighScores[g]);
+                        }
+                        HighScoreStreamWriter.Close();
+                        //Ghi lại tên của người đạt điểm cao
+                        StreamWriter strUserStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/User.txt", false);
+                        for (int h = 0; h < 3; h++)
+                        {
+                            strUserStreamWriter.WriteLine(strUser[h]);
+                        }
+                        strUserStreamWriter.Close();
+                        //Reset lại điểm của người chơi
+                        Score = 0;
+                        lblYScore.Text = Score.ToString();
+                        Replay();//Chơi lại
                     }
-                    //ghi điểm cao vào file highscore trong thư mục bin
-                    StreamWriter HighScoreStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/HighScores.txt", false);
-                    for (int g = 0; g < 3; g++)
-                    {
-                        HighScoreStreamWriter.WriteLine(intHighScores[g]);
-                    }
-                    HighScoreStreamWriter.Close();
-                    //Ghi lại tên của người đạt điểm cao
-                    StreamWriter strUserStreamWriter = new StreamWriter(Directory.GetCurrentDirectory() + @"/Data/User.txt", false);
-                    for (int h = 0; h < 3; h++)
-                    {
-                        strUserStreamWriter.WriteLine(strUser[h]);
-                    }
-                    strUserStreamWriter.Close();
-                    //Reset lại điểm của người chơi
-                    Score = 0;
-                    lblYScore.Text = Score.ToString();
-                    Replay();//Chơi lại
                 }
                 else
                     MessageBox.Show("Chúc mừng bạn đã hoàn thành tất cả màn chơi, hãy quay trở lại sau khi chúng tôi cập nhật thêm các màn chơi khó hơn nhé!! Cảm ơn!!");
@@ -659,6 +662,12 @@ namespace Memory_Game
                 f.Show();
                 this.Hide();
             }
+        }
+
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            if (menuItem4.Text == "Tắt âm thanh") menuItem4.Text = "Bật âm thanh";
+            else menuItem4.Text = "Tắt âm thanh";
         }
 
 

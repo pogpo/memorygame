@@ -37,6 +37,7 @@
             this.mnuReplay = new System.Windows.Forms.MenuItem();
             this.mnuExit = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.mnuSaveCurrent = new System.Windows.Forms.MenuItem();
             this.mnuLoadgame = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -66,7 +67,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +127,12 @@
             this.mnuExit});
             this.menuItem1.Text = "&Lựa chọn";
             // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 0;
+            this.menuItem3.Text = "Trang chủ";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
             // mnuSaveCurrent
             // 
             this.mnuSaveCurrent.Index = 0;
@@ -145,7 +152,8 @@
             this.menuItem2.Index = 1;
             this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mnuSaveCurrent,
-            this.mnuLoadgame});
+            this.mnuLoadgame,
+            this.menuItem4});
             this.menuItem2.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.menuItem2.Text = "Trò &chơi";
             // 
@@ -411,11 +419,11 @@
             this.progressBar2.Size = new System.Drawing.Size(407, 23);
             this.progressBar2.TabIndex = 156;
             // 
-            // menuItem3
+            // menuItem4
             // 
-            this.menuItem3.Index = 0;
-            this.menuItem3.Text = "Trang chủ";
-            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            this.menuItem4.Index = 2;
+            this.menuItem4.Text = "Tắt âm thanh";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
             // FrmMemory
             // 
@@ -489,6 +497,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem4;
     }
 }
 
