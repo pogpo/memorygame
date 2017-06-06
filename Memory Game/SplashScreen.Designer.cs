@@ -35,40 +35,44 @@
             this.lblPhanTram = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblGioithieu = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
             // 
             this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnOk.CausesValidation = false;
+            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.Enabled = false;
-            this.btnOk.Location = new System.Drawing.Point(425, 287);
+            this.btnOk.Font = new System.Drawing.Font("iCiel Crocante", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.btnOk.Location = new System.Drawing.Point(315, 238);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOk.Name = "btnOk";
             this.btnOk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnOk.Size = new System.Drawing.Size(90, 34);
+            this.btnOk.Size = new System.Drawing.Size(146, 48);
             this.btnOk.TabIndex = 1;
-            this.btnOk.Text = "&Start";
+            this.btnOk.Text = "&START";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(49, 293);
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.progressBar1.Location = new System.Drawing.Point(161, 191);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(315, 23);
+            this.progressBar1.Size = new System.Drawing.Size(420, 28);
             this.progressBar1.TabIndex = 3;
             // 
             // lblPhanTram
             // 
             this.lblPhanTram.BackColor = System.Drawing.Color.Transparent;
             this.lblPhanTram.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhanTram.ForeColor = System.Drawing.Color.Blue;
-            this.lblPhanTram.Location = new System.Drawing.Point(370, 293);
+            this.lblPhanTram.ForeColor = System.Drawing.Color.Lavender;
+            this.lblPhanTram.Location = new System.Drawing.Point(585, 196);
+            this.lblPhanTram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhanTram.Name = "lblPhanTram";
-            this.lblPhanTram.Size = new System.Drawing.Size(33, 19);
+            this.lblPhanTram.Size = new System.Drawing.Size(44, 23);
             this.lblPhanTram.TabIndex = 4;
             this.lblPhanTram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -77,10 +81,11 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(401, 293);
+            this.label3.ForeColor = System.Drawing.Color.Lavender;
+            this.label3.Location = new System.Drawing.Point(627, 196);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 19);
+            this.label3.Size = new System.Drawing.Size(28, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "%";
             // 
@@ -88,45 +93,23 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lblGioithieu
-            // 
-            this.lblGioithieu.BackColor = System.Drawing.Color.Transparent;
-            this.lblGioithieu.ForeColor = System.Drawing.Color.Blue;
-            this.lblGioithieu.Location = new System.Drawing.Point(26, 22);
-            this.lblGioithieu.Name = "lblGioithieu";
-            this.lblGioithieu.Size = new System.Drawing.Size(396, 177);
-            this.lblGioithieu.TabIndex = 0;
-            this.lblGioithieu.Text = resources.GetString("lblGioithieu.Text");
-            this.lblGioithieu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblGioithieu);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Red;
-            this.groupBox1.Location = new System.Drawing.Point(49, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(466, 199);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
             // SplashScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Memory_Game.Properties.Resources.Loading_3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(566, 333);
+            this.ClientSize = new System.Drawing.Size(755, 410);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPhanTram);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "SplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giới Thiệu";
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +122,5 @@
         private System.Windows.Forms.Label lblPhanTram;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.Label lblGioithieu;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

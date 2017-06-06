@@ -105,3 +105,21 @@ C:\Users\Kai\Desktop\Moving-Memory\Moving Memory\game luyện trí nhớ Moving 
 C:\Users\Kai\Desktop\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
 C:\Users\Kai\Desktop\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.exe
 C:\Users\Kai\Desktop\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.exe
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.pdb
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.exe
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csprojResolveAssemblyReference.cache
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.FrmMemory.resources
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
+C:\Users\Kai\Desktop\Moving-Memory\Moving-Memory\Moving Memory\game luyện trí nhớ Moving Memory C#\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory Game.exe
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory Game.pdb
+D:\LTTQ\Final\Memory Game\Memory Game\bin\Debug\Memory Game.exe
+D:\LTTQ\Final\Memory Game\Memory Game\bin\Debug\Memory Game.pdb
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csprojResolveAssemblyReference.cache
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.FrmMemory.resources
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
+D:\LTTQ\Final\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache

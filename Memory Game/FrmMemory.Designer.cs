@@ -66,6 +66,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             // 
             // mnuNewGame
             // 
-            this.mnuNewGame.Index = 0;
+            this.mnuNewGame.Index = 1;
             this.mnuNewGame.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mnuNormal,
             this.mnuTime,
@@ -111,7 +112,7 @@
             // 
             // mnuExit
             // 
-            this.mnuExit.Index = 1;
+            this.mnuExit.Index = 2;
             this.mnuExit.Shortcut = System.Windows.Forms.Shortcut.AltF4;
             this.mnuExit.Text = "Th&oát";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
@@ -120,6 +121,7 @@
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem3,
             this.mnuNewGame,
             this.mnuExit});
             this.menuItem1.Text = "&Lựa chọn";
@@ -217,9 +219,9 @@
             this.lblYourtime.ForeColor = System.Drawing.Color.Red;
             this.lblYourtime.Location = new System.Drawing.Point(88, 168);
             this.lblYourtime.Name = "lblYourtime";
-            this.lblYourtime.Size = new System.Drawing.Size(46, 19);
+            this.lblYourtime.Size = new System.Drawing.Size(49, 19);
             this.lblYourtime.TabIndex = 3;
-            this.lblYourtime.Text = "00:00";
+            this.lblYourtime.Text = "0 giây";
             // 
             // lblClicks
             // 
@@ -409,6 +411,12 @@
             this.progressBar2.Size = new System.Drawing.Size(407, 23);
             this.progressBar2.TabIndex = 156;
             // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 0;
+            this.menuItem3.Text = "Trang chủ";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
             // FrmMemory
             // 
             this.AcceptButton = this.btnStart;
@@ -480,6 +488,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.MenuItem menuItem3;
     }
 }
 

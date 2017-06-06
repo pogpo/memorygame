@@ -56,7 +56,7 @@ namespace Memory_Game
                 b[i].Size = new Size(400 / n, 280 / n);
                 b[i].Image = Image.FromFile("Default.jpg");
                 var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
-                b[i].Image = bm;
+                b[i].Image = bm;                
                 b[i].Location = new Point(115 + k * 400 / n, n * 15 + j * 280 / n);
                 b[i].Enabled = false;
                 b[i].Click += new EventHandler(b_Click);
@@ -298,18 +298,9 @@ namespace Memory_Game
         {
             CurTime = new DateTime(2017, 7, 6, 0, 0, 0, 0);
             lblYourtime.Text = "";
-            if (CurTime.Minute < 10)
-            {
-                if (CurTime.Second < 10)
-                    lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
-                else lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
-            }
-            else
-            {
-                if (CurTime.Second < 10)
-                    lblYourtime.Text = CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
-                else lblYourtime.Text = CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
-            }
+            if (CurTime.Minute > 0)
+                lblYourtime.Text = CurTime.Minute.ToString() + " phút " + CurTime.Second.ToString() + " giây";
+            else lblYourtime.Text = CurTime.Second.ToString() + " giây";
             Normal();
             tmp = 0;
             lblClicks.Text = tmp.ToString();
@@ -336,18 +327,9 @@ namespace Memory_Game
                 t *= 2;
             }
             CurTime = new DateTime(2017, 7, 6, 0, t / 60, t % 60, 0);
-            if (CurTime.Minute < 10)
-            {
-                if (CurTime.Second < 10)
-                    lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
-                else lblYourtime.Text = " 0" + CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
-            }
-            else
-            {
-                if (CurTime.Second < 10)
-                    lblYourtime.Text = CurTime.Minute.ToString() + ":0" + CurTime.Second.ToString();
-                else lblYourtime.Text = CurTime.Minute.ToString() + ":" + CurTime.Second.ToString();
-            }
+            if (CurTime.Minute > 0)
+                lblYourtime.Text = CurTime.Minute.ToString() + " phút " + CurTime.Second.ToString() + " giây";
+            else lblYourtime.Text = CurTime.Second.ToString() + " giây";
             Time();
             tmp = 0;
             lblClicks.Text = tmp.ToString();
@@ -430,7 +412,7 @@ namespace Memory_Game
         private void mnuReplay_Click(object sender, EventArgs e)
         {
             //Hỏi người chơi có chắc chắn muốn chơi lại không.
-            MessageBox.Show("Bạn có chắc chắn muốn chơi lại trò chơi ở mức độ khác chứ?", "Xác nhận",
+            MessageBox.Show("Bạn chắc chắn muốn chơi lại màn này chứ?", "Xác nhận",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             Replay();
             flag = 1;
@@ -473,6 +455,8 @@ namespace Memory_Game
                 for (int i = 0; i < b.Length; i++)
                 {
                     b[i].Image = Image.FromFile("Default.jpg");
+                    var bm = new Bitmap(b[i].Image, new Size(400 / n, 280 / n));
+                    b[i].Image = bm;
                     b[i].Enabled = false;
                 }
             }
@@ -496,10 +480,11 @@ namespace Memory_Game
             progressBar2.PerformStep();
             //Thời gian đếm ngược
             TimeSpan dt = new TimeSpan(0, 0, 0, 1, 0);
-            if (lblClicks.Visible == false && label2.Visible == false)
-                CurTime = CurTime.Add(dt);
-            else CurTime = CurTime.Subtract(dt);
-            lblYourtime.Text = CurTime.Minute.ToString() + " : " + CurTime.Second.ToString();
+            if (label2.Visible == true) CurTime = CurTime.Subtract(dt);
+            else CurTime = CurTime.Add(dt);
+            if (CurTime.Minute >= 0)
+                lblYourtime.Text = CurTime.Minute.ToString() + " phút " + CurTime.Second.ToString() + " giây";
+            else lblYourtime.Text = CurTime.Second.ToString() + " giây";
             if (CurTime.Minute == 0 && CurTime.Second == 0)//Hết thời gian thì thông báo thua cuộc
             {
                 timer1.Enabled = false;
@@ -661,6 +646,19 @@ namespace Memory_Game
         {
 
             MessageBox.Show("Chức năng này tạm thời chưa sử dụng được!");
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            DialogResult r;
+            r = MessageBox.Show("Nếu trở về trang chủ bây giờ, bạn sẽ phải chơi lại từ đầu, bạn chắc chắn chứ?", "Xác nhận",
+                MessageBoxButtons.YesNo);
+            if (r == DialogResult.Yes)
+            {
+                FrmMemory f = new FrmMemory();
+                f.Show();
+                this.Hide();
+            }
         }
 
 
