@@ -61,6 +61,7 @@
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="VolumeControl.cs" />
     <EmbeddedResource Include="FrmMemory.resx">
       <DependentUpon>FrmMemory.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +93,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Loading_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Sound_.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,7 @@ using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
 
 /**********************************************************************
 /**Description:	Đề tài Memory Game                                    *
@@ -21,10 +22,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Memory_Game
 {
     public partial class FrmMemory : Form
-    {
+    {        
         public FrmMemory()
-        {
-            InitializeComponent();
+        {            
+            bg.Play();
+            InitializeComponent();             
             timer2.Start();
             mnuReplay.Enabled = false;
             mnuSaveCurrent.Enabled = false;
@@ -43,13 +45,29 @@ namespace Memory_Game
         Random r = new Random();
         int n = 2;
         int flag = 0;
+        private bool playing = true;
+        SoundPlayer bg = new SoundPlayer("BG.wav");
         //Phát sinh các button động với số lượng theo các mức độ do người chơi chọn
         public void Step()
-        {
+        {     
             b = new Button[n * n];
             int k = 0, j = 1;
             label4.Visible = false;
             lblYourtime.Visible = false;
+            if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
+            else
+            {
+                if (n==4) BackgroundImage = Image.FromFile("BG_2.png");
+                else
+                {
+                    if (n == 6) BackgroundImage = Image.FromFile("BG_3.png");
+                    else
+                    {
+                        if (n == 8) BackgroundImage = Image.FromFile("BG_4.png");
+                        else if (n == 10) BackgroundImage = Image.FromFile("BG_5.png");
+                    }
+                }
+            }
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
@@ -76,6 +94,20 @@ namespace Memory_Game
             label5.Visible = false;
             lblClicks.Visible = false;
             progressBar2.Visible = true;
+            if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
+            else
+            {
+                if (n == 4) BackgroundImage = Image.FromFile("BG_2.png");
+                else
+                {
+                    if (n == 6) BackgroundImage = Image.FromFile("BG_3.png");
+                    else
+                    {
+                        if (n == 8) BackgroundImage = Image.FromFile("BG_4.png");
+                        else if (n == 10) BackgroundImage = Image.FromFile("BG_5.png");
+                    }
+                }
+            }
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
@@ -101,6 +133,20 @@ namespace Memory_Game
             label5.Visible = false;
             lblClicks.Visible = false;
             progressBar2.Visible = false;
+            if (n == 2) BackgroundImage = Image.FromFile("BG_1.png");
+            else
+            {
+                if (n == 4) BackgroundImage = Image.FromFile("BG_2.png");
+                else
+                {
+                    if (n == 6) BackgroundImage = Image.FromFile("BG_3.png");
+                    else
+                    {
+                        if (n == 8) BackgroundImage = Image.FromFile("BG_4.png");
+                        else if (n == 10) BackgroundImage = Image.FromFile("BG_5.png");
+                    }
+                }
+            }
             for (int i = 0; i < n * n; i++)
             {
                 b[i] = new Button();
@@ -176,16 +222,21 @@ namespace Memory_Game
                         //Nếu 2 button đều đã mở thì kiểm tra tiếp xem tag của 2 button có bằng nhau không, nếu bằng nhau thì xóa button.
                         if (b[i].Tag.ToString() == b[j].Tag.ToString())
                         {
-                            if (menuItem4.Text == "Tắt âm thanh") correctSound();
+                            if (playing)
+                            {
+                                var correct = new WMPLib.WindowsMediaPlayer();
+                                correct.URL = @"tada.wav";
+                            }
                             System.Threading.Thread.Sleep(500);
                             b[i].Enabled = true;
                             b[j].Enabled = true;
+                            System.Threading.Thread.Sleep(500);
                             b[i].Visible = false;
                             b[j].Visible = false;
                             if (b[i].Name == "Lucky")
                             {
                                 if (lblYourtime.Visible == false) max += 2;
-                                if (lblClicks.Visible == false)
+                                if (label2.Visible == true) t += 5;
                                     for (int k = 0; k < b.Length; k++)
                                     {
                                         b[k].Image = Image.FromFile(b[k].Tag.ToString() + ".jpg");
@@ -211,10 +262,19 @@ namespace Memory_Game
                         }
                         else
                         {
-                            if (menuItem4.Text == "Tắt âm thanh") wrongSound();
+                            if (playing)
+                            {
+                                var wrong = new WMPLib.WindowsMediaPlayer();
+                                wrong.URL = @"chimes.wav";
+                            }
                             if (max <= 0)
                             {
                                 timer1.Stop();
+                                if (playing)
+                                {
+                                    var lose = new WMPLib.WindowsMediaPlayer();
+                                    lose.URL = @"lose.wav";
+                                }
                                 dem = 0;
                                 btnPause.Enabled = false;
                                 DialogResult result = MessageBox.Show("Click hết số lần cho phép mà vẫn thua, gà quá, có muốn thử lại không?", "Sợ gì, chơi luôn!", MessageBoxButtons.YesNo);
@@ -273,7 +333,7 @@ namespace Memory_Game
             r = MessageBox.Show("Bạn có thực sự muốn thoát trò chơi này?", "Xác nhận",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button1);
+                MessageBoxDefaultButton.Button1);            
             if (r == DialogResult.No)
                 e.Cancel = true;
         }
@@ -283,12 +343,12 @@ namespace Memory_Game
             MessageBox.Show("                               Hướng dẫn chơi game\n"
 
         + "   Để bắt đầu trò chơi hãy nhấn nút Bắt đầu, nhấn Tạm dừng nếu muốn dừng trò chơi trong 1 khoảng thời gian \n"
-        + "Nhấn vào mỗi ô hình sẽ xuất hiện một hình ảnh và hãy nhớ hình ảnh này\n "
+        + "Nhấn vào mỗi ô hình sẽ xuất hiện một hình ảnh và hãy nhớ hình ảnh này\n"
         + "   Lật tiếp hình thứ 2 nếu hình ảnh trong hình này giống hình ảnh của hình mở lần 1 thì 2 hình sẽ biến mất "
-        + "ngược lại thì 2 hình này sẽ ẩn giá trị hình ảnh. "
-        + "Hãy thực hiện liên tục cho đến khi không còn hình nào.\n "
-        + "Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.\n"
-        + "Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:\n"
+        + "ngược lại thì 2 hình này sẽ ẩn giá trị hình ảnh.\n"
+        + "   Hãy thực hiện liên tục cho đến khi không còn hình nào.\n"
+        + "   Nếu may mắn lật được cặp hình Lucky sẽ có thể xem toàn bộ các hình trong vòng 2 giây và được cộng thời gian/số clicks tương ứng.\n"
+        + "   Để lựa chọn nhanh bạn có thể dùng các phím tắt sau:\n"
         + "- Thoát : Ctrl+F4\n- Cơ bản : F2\n- Giới hạn thời gian : F3\n- Giới hạn số click : F4\n- Chơi lại : F12\n"
         + "- Lưu trạng thái đang chơi : Ctrl+S\n- Mở lại lần chơi gần đây : Ctrl+L\n- Hướng dẫn : F1\n- Thông tin : Ctrl + F12", "Hướng dẫn",
         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -297,6 +357,8 @@ namespace Memory_Game
 
         private void mnuNormal_Click(object sender, EventArgs e)
         {
+            Sound.Visible = true;
+            if (playing) bg.Play();
             CurTime = new DateTime(2017, 7, 6, 0, 0, 0, 0);
             lblYourtime.Text = "";
             if (CurTime.Minute > 0)
@@ -323,6 +385,8 @@ namespace Memory_Game
         }
         private void mnuTime_Click(object sender, EventArgs e)
         {
+            Sound.Visible = true;
+            if (playing) bg.Play();
             for (int i = 0; i < n; i++)
             {
                 t *= 2;
@@ -350,9 +414,11 @@ namespace Memory_Game
             }
             ans = 1;
         }
-
+        
         private void mnuStep_Click(object sender, EventArgs e)
         {
+            Sound.Visible = true;
+            if (playing) bg.Play();
             Step();
             for (int i = 0; i < n; i++)
             {
@@ -379,7 +445,8 @@ namespace Memory_Game
         }
         //Chơi lại 
         public void Replay()
-        {
+        {           
+            if (playing) bg.Play();
             timer1.Stop();
             // timer2.Stop();
             progressBar2.Maximum = 0;
@@ -395,6 +462,7 @@ namespace Memory_Game
             btnPause.BackColor = Color.Blue;
             readFile();
             if (dem != b.Length / 2) Score = 0;
+            dem = 0;
             max = 2;
             t = 2;
             lblClicks.Text = max.ToString();
@@ -418,18 +486,8 @@ namespace Memory_Game
             Replay();
             flag = 1;
         }
-        //Dùng để tạo âm thanh khi người chơi chọn sai
-        void wrongSound()
-        {
-            SoundPlayer sp = new SoundPlayer("tada.wav");
-            sp.Play();
-        }
-        //Dùng để tạo âm thanh khi người chơi chọn đúng
-        void correctSound()
-        {
-            SoundPlayer sp = new SoundPlayer("chimes.wav");
-            sp.Play();
-        }
+                     
+
         //Button Start đề kích hoạt form
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -553,6 +611,11 @@ namespace Memory_Game
             if (dem == b.Length / 2)
             {
                 timer1.Stop();
+                if (playing)
+                {
+                    var win = new WMPLib.WindowsMediaPlayer();
+                    win.URL = @"win.wav";
+                }
                 dem = 0;
                 btnPause.Enabled = false;
                 MessageBox.Show("Trò chơi đã kết thúc! Bạn đã làm rất tốt!\nĐiểm của bạn : " + lblYScore.Text + "\nSố lần Click : " + tmp.ToString() + "\nThời gian chơi: " + progressBar2.Value.ToString(), "Chúc mừng");
@@ -662,16 +725,36 @@ namespace Memory_Game
                 f.Show();
                 this.Hide();
             }
-        }
+        }       
 
-        private void menuItem4_Click(object sender, EventArgs e)
+        private void FrmMemory_Load(object sender, EventArgs e)
         {
-            if (menuItem4.Text == "Tắt âm thanh") menuItem4.Text = "Bật âm thanh";
-            else menuItem4.Text = "Tắt âm thanh";
+            
         }
-
-
-
+        
+        private void Sound_Click(object sender, EventArgs e)
+        {
+            if (bg.IsLoadCompleted)
+            {
+                if (playing)
+                {
+                    bg.Stop();
+                    Sound.Image = Image.FromFile("Mute.jpg");
+                    var bm = new Bitmap(Sound.Image, new Size(48, 48));
+                    Sound.Image = bm;
+                    playing = false;
+                }
+                else
+                {
+                    bg.Play();
+                    Sound.Image = Image.FromFile("Sound_.png");
+                    var bm = new Bitmap(Sound.Image, new Size(48, 48));
+                    Sound.Image = bm;
+                    playing = true;
+                }
+            }
+        }
+        
     }
 
 }

@@ -67,7 +67,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.Sound = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -152,8 +152,7 @@
             this.menuItem2.Index = 1;
             this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mnuSaveCurrent,
-            this.mnuLoadgame,
-            this.menuItem4});
+            this.mnuLoadgame});
             this.menuItem2.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.menuItem2.Text = "Trò &chơi";
             // 
@@ -419,11 +418,16 @@
             this.progressBar2.Size = new System.Drawing.Size(407, 23);
             this.progressBar2.TabIndex = 156;
             // 
-            // menuItem4
+            // Sound
             // 
-            this.menuItem4.Index = 2;
-            this.menuItem4.Text = "Tắt âm thanh";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            this.Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Sound.Image = global::Memory_Game.Properties.Resources.Sound_;
+            this.Sound.Location = new System.Drawing.Point(774, 2);
+            this.Sound.Name = "Sound";
+            this.Sound.Size = new System.Drawing.Size(48, 46);
+            this.Sound.TabIndex = 158;
+            this.Sound.UseVisualStyleBackColor = true;
+            this.Sound.Click += new System.EventHandler(this.Sound_Click);
             // 
             // FrmMemory
             // 
@@ -434,6 +438,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 571);
+            this.Controls.Add(this.Sound);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -450,6 +455,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Memory Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMemory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -497,7 +503,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.Button Sound;
     }
 }
 

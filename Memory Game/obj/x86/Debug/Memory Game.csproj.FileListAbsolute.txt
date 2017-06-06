@@ -132,3 +132,5 @@ C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Ga
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.Properties.Resources.resources
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Game.SplashScreen.resources
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
+C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.ResolveComReference.cache
