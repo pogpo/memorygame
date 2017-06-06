@@ -38,6 +38,22 @@ namespace Memory_Game
             label2.Visible = false;
             progressBar2.Visible = false;
             groupBox1.Visible = false;
+            Sound.FlatAppearance.BorderSize = 0;
+            btnRank.FlatAppearance.BorderSize = 0;
+            btnIns.FlatAppearance.BorderSize = 0;
+            btnPlay.FlatAppearance.BorderSize = 0;
+            btnNormal.FlatAppearance.BorderSize = 0;
+            btnStep.FlatAppearance.BorderSize = 0;
+            btnTime.FlatAppearance.BorderSize = 0;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnPlay.Visible = true;
+            btnNormal.Visible = true;
+            btnStep.Visible = true;
+            btnTime.Visible = true;
+            btnBack.Visible = false;
+            btnExit.Visible = true;
+            playing = true;
             pictureBox1.SendToBack();
             pictureBox2.SendToBack();
             readFile();
@@ -387,6 +403,11 @@ namespace Memory_Game
         private void mnuNormal_Click(object sender, EventArgs e)
         {
             Sound.Visible = true;
+            btnPlay.Visible = false;
+            btnNormal.Visible = false;
+            btnStep.Visible = false;
+            btnTime.Visible = false;
+            btnBack.Visible = true;
             if (playing) bg.Play();
             CurTime = new DateTime(2017, 7, 6, 0, 0, 0, 0);
             lblYourtime.Text = "";
@@ -400,11 +421,9 @@ namespace Memory_Game
             mnuTime.Enabled = false;
             mnuNormal.Enabled = false;
             mnuReplay.Enabled = true;
-            groupBox2.Visible = false;
             btnStart.Enabled = true;
             label2.Visible = false;
             progressBar2.Visible = false;
-            groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
             {
@@ -415,6 +434,11 @@ namespace Memory_Game
         private void mnuTime_Click(object sender, EventArgs e)
         {
             Sound.Visible = true;
+            btnPlay.Visible = false;
+            btnNormal.Visible = false;
+            btnStep.Visible = false;
+            btnTime.Visible = false;
+            btnBack.Visible = true;
             if (playing) bg.Play();
             for (int i = 0; i < n; i++)
             {
@@ -431,11 +455,9 @@ namespace Memory_Game
             mnuNormal.Enabled = false;
             mnuTime.Enabled = false;
             mnuReplay.Enabled = true;
-            groupBox2.Visible = false;
             btnStart.Enabled = true;
             label2.Visible = true;
             progressBar2.Visible = true;
-            groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
             {
@@ -447,6 +469,11 @@ namespace Memory_Game
         private void mnuStep_Click(object sender, EventArgs e)
         {
             Sound.Visible = true;
+            btnPlay.Visible = false;
+            btnNormal.Visible = false;
+            btnStep.Visible = false;
+            btnTime.Visible = false;
+            btnBack.Visible = true;
             if (playing) bg.Play();
             Step();
             for (int i = 0; i < n; i++)
@@ -460,11 +487,9 @@ namespace Memory_Game
             mnuTime.Enabled = false;
             mnuStep.Enabled = false;
             mnuReplay.Enabled = true;
-            groupBox2.Visible = false;
             btnStart.Enabled = true;
             label2.Visible = false;
             progressBar2.Visible = false;
-            groupBox2.Visible = false;
             groupBox1.Visible = true;
             if (ans == 0)
             {
@@ -776,7 +801,7 @@ namespace Memory_Game
                     bg.Stop();
                     Sound.Image = Image.FromFile("Mute.jpg");
                     var bm = new Bitmap(Sound.Image, new Size(48, 48));
-                    Sound.Image = bm;
+                    bm.MakeTransparent(Color.White);
                     playing = false;
                 }
                 else
@@ -784,7 +809,7 @@ namespace Memory_Game
                     bg.Play();
                     Sound.Image = Image.FromFile("Sound_.png");
                     var bm = new Bitmap(Sound.Image, new Size(48, 48));
-                    Sound.Image = bm;
+                    bm.MakeTransparent(Color.White);
                     playing = true;
                 }
             }
@@ -838,5 +863,60 @@ namespace Memory_Game
             if (Hint == 0) btnHint.Enabled = false;
         }
 
+        private void btnIns_Click_1(object sender, EventArgs e)
+        {
+            mnuInstructions.PerformClick();
+        }
+
+        private void btnRank_Click(object sender, EventArgs e)
+        {           
+            MessageBox.Show(lblHScore.Text, "Bảng xếp hạng",
+        MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnNormal_Click(object sender, EventArgs e)
+        {
+            btnNormal.ImageAlign = ContentAlignment.BottomLeft;
+            btnStep.ImageAlign = ContentAlignment.MiddleCenter;
+            btnTime.ImageAlign = ContentAlignment.MiddleCenter;
+        }
+
+        private void btnStep_Click(object sender, EventArgs e)
+        {
+            btnNormal.ImageAlign = ContentAlignment.MiddleCenter;
+            btnStep.ImageAlign = ContentAlignment.BottomLeft;
+            btnTime.ImageAlign = ContentAlignment.MiddleCenter;
+        }
+
+        private void btnTime_Click(object sender, EventArgs e)
+        {
+            btnNormal.ImageAlign = ContentAlignment.MiddleCenter;
+            btnStep.ImageAlign = ContentAlignment.MiddleCenter;
+            btnTime.ImageAlign = ContentAlignment.BottomLeft;
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (btnNormal.ImageAlign == ContentAlignment.BottomLeft)
+                mnuNormal.PerformClick();
+            else if (btnStep.ImageAlign == ContentAlignment.BottomLeft)
+                mnuStep.PerformClick();
+            else if (btnTime.ImageAlign == ContentAlignment.BottomLeft)
+                mnuTime.PerformClick();
+            else MessageBox.Show("Vui lòng chọn chế độ chơi ở dưới!!", "Chọn chế độ chơi",
+        MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            menuItem3.PerformClick();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            mnuExit.PerformClick();
+        }
+
+        
     }
 }

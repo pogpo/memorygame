@@ -132,6 +132,33 @@
   <ItemGroup>
     <None Include="bin\Debug\firework 2.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\rank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Instruction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Co ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Dem thoi gian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Dem buoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

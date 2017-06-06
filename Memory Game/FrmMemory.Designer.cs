@@ -63,16 +63,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblGiangVien = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.Sound = new System.Windows.Forms.Button();
             this.btnHint = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnRank = new System.Windows.Forms.Button();
+            this.btnIns = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnNormal = new System.Windows.Forms.Button();
+            this.btnStep = new System.Windows.Forms.Button();
+            this.btnTime = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -194,7 +199,7 @@
             // 
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnStart.Location = new System.Drawing.Point(62, 28);
+            this.btnStart.Location = new System.Drawing.Point(35, 28);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(88, 26);
             this.btnStart.TabIndex = 0;
@@ -274,7 +279,7 @@
             // 
             this.btnPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnPause.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnPause.Location = new System.Drawing.Point(62, 60);
+            this.btnPause.Location = new System.Drawing.Point(35, 60);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(88, 26);
             this.btnPause.TabIndex = 1;
@@ -389,29 +394,6 @@
             this.label2.TabIndex = 155;
             this.label2.Text = "Thời gian đã qua:";
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(21, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(545, 312);
-            this.label1.TabIndex = 151;
-            this.label1.Text = resources.GetString("label1.Text");
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Red;
-            this.groupBox2.Location = new System.Drawing.Point(124, 120);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(596, 362);
-            this.groupBox2.TabIndex = 150;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hướng dẫn chơi Game";
-            // 
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
@@ -425,20 +407,26 @@
             // 
             // Sound
             // 
+            this.Sound.BackColor = System.Drawing.Color.Transparent;
             this.Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Sound.CausesValidation = false;
+            this.Sound.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sound.ForeColor = System.Drawing.Color.Transparent;
             this.Sound.Image = global::Memory_Game.Properties.Resources.Sound_;
-            this.Sound.Location = new System.Drawing.Point(774, 2);
+            this.Sound.Location = new System.Drawing.Point(759, 2);
             this.Sound.Name = "Sound";
-            this.Sound.Size = new System.Drawing.Size(48, 46);
+            this.Sound.Size = new System.Drawing.Size(66, 65);
             this.Sound.TabIndex = 158;
-            this.Sound.UseVisualStyleBackColor = true;
+            this.Sound.TabStop = false;
+            this.Sound.UseVisualStyleBackColor = false;
             this.Sound.Click += new System.EventHandler(this.Sound_Click);
             // 
             // btnHint
             // 
             this.btnHint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHint.Image = global::Memory_Game.Properties.Resources.number_3;
-            this.btnHint.Location = new System.Drawing.Point(774, 50);
+            this.btnHint.Location = new System.Drawing.Point(557, 165);
             this.btnHint.Name = "btnHint";
             this.btnHint.Size = new System.Drawing.Size(48, 48);
             this.btnHint.TabIndex = 159;
@@ -464,15 +452,135 @@
             this.pictureBox2.TabIndex = 161;
             this.pictureBox2.TabStop = false;
             // 
+            // btnRank
+            // 
+            this.btnRank.BackColor = System.Drawing.Color.Transparent;
+            this.btnRank.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRank.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRank.Image = global::Memory_Game.Properties.Resources.rank;
+            this.btnRank.Location = new System.Drawing.Point(759, 73);
+            this.btnRank.Name = "btnRank";
+            this.btnRank.Size = new System.Drawing.Size(66, 65);
+            this.btnRank.TabIndex = 162;
+            this.btnRank.TabStop = false;
+            this.btnRank.UseVisualStyleBackColor = true;
+            this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
+            // 
+            // btnIns
+            // 
+            this.btnIns.BackColor = System.Drawing.Color.Transparent;
+            this.btnIns.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIns.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIns.ForeColor = System.Drawing.Color.Transparent;
+            this.btnIns.Image = global::Memory_Game.Properties.Resources.Instruction;
+            this.btnIns.Location = new System.Drawing.Point(759, 145);
+            this.btnIns.Name = "btnIns";
+            this.btnIns.Size = new System.Drawing.Size(66, 65);
+            this.btnIns.TabIndex = 163;
+            this.btnIns.TabStop = false;
+            this.btnIns.UseVisualStyleBackColor = false;
+            this.btnIns.Click += new System.EventHandler(this.btnIns_Click_1);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPlay.Image = global::Memory_Game.Properties.Resources.Play;
+            this.btnPlay.Location = new System.Drawing.Point(352, 217);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(131, 124);
+            this.btnPlay.TabIndex = 164;
+            this.btnPlay.TabStop = false;
+            this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnNormal
+            // 
+            this.btnNormal.BackColor = System.Drawing.Color.Transparent;
+            this.btnNormal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNormal.Image = global::Memory_Game.Properties.Resources.Co_ban;
+            this.btnNormal.Location = new System.Drawing.Point(100, 398);
+            this.btnNormal.Name = "btnNormal";
+            this.btnNormal.Size = new System.Drawing.Size(205, 70);
+            this.btnNormal.TabIndex = 165;
+            this.btnNormal.TabStop = false;
+            this.btnNormal.UseVisualStyleBackColor = false;
+            this.btnNormal.Click += new System.EventHandler(this.btnNormal_Click);
+            // 
+            // btnStep
+            // 
+            this.btnStep.BackColor = System.Drawing.Color.Transparent;
+            this.btnStep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStep.Image = global::Memory_Game.Properties.Resources.Dem_buoc;
+            this.btnStep.Location = new System.Drawing.Point(313, 398);
+            this.btnStep.Name = "btnStep";
+            this.btnStep.Size = new System.Drawing.Size(205, 70);
+            this.btnStep.TabIndex = 166;
+            this.btnStep.TabStop = false;
+            this.btnStep.UseVisualStyleBackColor = false;
+            this.btnStep.Click += new System.EventHandler(this.btnStep_Click);
+            // 
+            // btnTime
+            // 
+            this.btnTime.BackColor = System.Drawing.Color.Transparent;
+            this.btnTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTime.Image = global::Memory_Game.Properties.Resources.Dem_thoi_gian;
+            this.btnTime.Location = new System.Drawing.Point(526, 398);
+            this.btnTime.Name = "btnTime";
+            this.btnTime.Size = new System.Drawing.Size(205, 70);
+            this.btnTime.TabIndex = 167;
+            this.btnTime.TabStop = false;
+            this.btnTime.UseVisualStyleBackColor = false;
+            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Image = global::Memory_Game.Properties.Resources.exit;
+            this.btnExit.Location = new System.Drawing.Point(748, 471);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(66, 65);
+            this.btnExit.TabIndex = 168;
+            this.btnExit.TabStop = false;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Image = global::Memory_Game.Properties.Resources.back;
+            this.btnBack.Location = new System.Drawing.Point(14, 471);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(66, 65);
+            this.btnBack.TabIndex = 169;
+            this.btnBack.TabStop = false;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // FrmMemory
             // 
             this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Memory_Game.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 571);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnTime);
+            this.Controls.Add(this.btnStep);
+            this.Controls.Add(this.btnNormal);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.btnIns);
+            this.Controls.Add(this.btnRank);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnHint);
             this.Controls.Add(this.Sound);
@@ -482,7 +590,6 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblTen);
             this.Controls.Add(this.lblGiangVien);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -496,7 +603,6 @@
             this.Load += new System.EventHandler(this.FrmMemory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -536,8 +642,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblGiangVien;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer2;
@@ -547,6 +651,14 @@
         private System.Windows.Forms.Button btnHint;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnRank;
+        private System.Windows.Forms.Button btnIns;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnNormal;
+        private System.Windows.Forms.Button btnStep;
+        private System.Windows.Forms.Button btnTime;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
