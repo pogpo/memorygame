@@ -134,3 +134,7 @@ C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory_Ga
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.GenerateResource.Cache
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Interop.WMPLib.dll
 C:\Users\Kai\Desktop\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.ResolveComReference.cache
+C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.csproj.ResolveComReference.cache
+C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.exe
+C:\Users\Kai\Desktop\Memory-Game\Memory-Game\Memory Game\Memory Game\obj\x86\Debug\Memory Game.pdb
